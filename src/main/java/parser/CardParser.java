@@ -11,7 +11,7 @@ public class CardParser extends  XMLParser {
 
     public CardParser() {
         this.cardRepository = new CardRepository();
-        loadXmlDocument("src/main/resources/Facts.xml");
+        loadXmlDocument("src/main/resources/Cards.xml");
         parse();
     }
 
@@ -27,12 +27,6 @@ public class CardParser extends  XMLParser {
                 Element eElement = (Element) nNode;
 
                 String cardID = eElement.getAttribute("id");
-
-//                String cardDescription = eElement.getChildNodes()
-//                        .item(1)
-//                        .getAttributes()
-//                        .item(0)
-//                        .getTextContent();
 
                 // Another option
 //                String factDescription2 = eElement.getElementsByTagName("Description")
