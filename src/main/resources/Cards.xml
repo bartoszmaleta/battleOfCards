@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cards>
+    <Card id="papa">
+        <Description value="Tesla Model S"/>
+        <Stats>
+            <Stat id="family">false</Stat>
+            <Stat id="money">true</Stat>
+            <Stat id="comfort">true</Stat>
+            <Stat id="luxury">true</Stat>
+            <Stat id="ecological">true</Stat>
+        </Stats>
+    </Card>
+    <Card id="seat">
+        <Description value="Seat Leon"/>
+        <Stats>
+            <Stat id="family">false</Stat>
+            <Stat id="money">false</Stat>
+            <Stat id="comfort">true</Stat>
+            <Stat id="luxury">false</Stat>
+            <Stat id="ecological">false</Stat>
+        </Stats>
+    </Card>
+    <Card id="porsche">
+        <Description value="Porsche 911"/>
+        <Stats>
+            <Stat id="family">false</Stat>
+            <Stat id="money">true</Stat>
+            <Stat id="comfort">false</Stat>
+            <Stat id="luxury">false</Stat>
+            <Stat id="ecological">false</Stat>
+        </Stats>
+    </Card>
+    <Card id="ford">
+        <Description value="Ford Mondeo"/>
+        <Stats>
+            <Stat id="family">true</Stat>
+            <Stat id="money">true</Stat>
+            <Stat id="comfort">false</Stat>
+            <Stat id="luxury">false</Stat>
+            <Stat id="ecological">true</Stat>
+        </Stats>
+    </Card>
+    <Card id="toyota">
+        <Description value="Toyota Prius"/>
+        <Stats>
+            <Stat id="family">false</Stat>
+            <Stat id="money">false</Stat>
+            <Stat id="comfort">false</Stat>
+            <Stat id="luxury">false</Stat>
+            <Stat id="ecological">true</Stat>
+        </Stats>
+    </Card>
+    <Card id="mercedes">
+        <Description value="Mercedes S-class"/>
+        <Stats>
+            <Stat id="family">true</Stat>
+            <Stat id="money">true</Stat>
+            <Stat id="comfort">true</Stat>
+            <Stat id="luxury">true</Stat>
+            <Stat id="ecological">true</Stat>
+        </Stats>
+    </Card>
+    <Card id="lamborghini">
+        <Description value="Lamborghini Aventador"/>
+        <Stats>
+            <Stat id="family">false</Stat>
+            <Stat id="money">true</Stat>
+            <Stat id="comfort">false</Stat>
+            <Stat id="luxury">true</Stat>
+            <Stat id="ecological">false</Stat>
+        </Stats>
+    </Card>
+</Cards>
