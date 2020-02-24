@@ -15,6 +15,10 @@ public class CardRepository {
         this.cardList = new ArrayList<>();
     }
 
+    public void addCard(Card card) {
+        cardList.add(card);
+    }
+
     private class CardIterator implements Iterator<Card> {
         int index = 0;
 

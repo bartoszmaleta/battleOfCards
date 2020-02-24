@@ -7,7 +7,7 @@ public class Card {
     private String name;
     private Map<String, Integer> stats;
 
-    public Card(String name, Map<String, Integer> stats) {
+    public Card(String name) {
         this.name = name;
         this.stats = new HashMap<>();
     }
@@ -16,7 +16,7 @@ public class Card {
         return this.stats;
     }
 
-    public void setStatValueById(String id, int value) {
+    public void setCardValueById(String id, int value) {
         this.stats.put(id, value);
     }
 }

@@ -1,5 +1,6 @@
 package parser;
 
+import model.Card;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,18 +20,19 @@ public class CardParser extends  XMLParser {
     }
 
     private void parse() {
-        NodeList factList = doc.getElementsByTagName("Fact");
-        for (int i = 0; i < factList.getLength(); i++) {
-            Node nNode = factList.item(i);
+        NodeList cardList = doc.getElementsByTagName("Card");
+        for (int i = 0; i < cardList.getLength(); i++) {
+            Node nNode = cardList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
 
-                String factID = eElement.getAttribute("id");
-                String factDescription = eElement.getChildNodes()
-                        .item(1)
-                        .getAttributes()
-                        .item(0)
-                        .getTextContent();
+                String cardID = eElement.getAttribute("id");
+
+//                String cardDescription = eElement.getChildNodes()
+//                        .item(1)
+//                        .getAttributes()
+//                        .item(0)
+//                        .getTextContent();
 
                 // Another option
 //                String factDescription2 = eElement.getElementsByTagName("Description")
@@ -40,16 +42,16 @@ public class CardParser extends  XMLParser {
 //                        .getTextContent();
 //
 
-                // TODO
-                Fact newFact = new Fact(factID, factDescription);
-                NodeList evals = eElement.getElementsByTagName("Eval");
-                for(int j=0;j<evals.getLength();j++) {
-                    Element eval = (Element) evals.item(j);
-                    String factEvalId = eval.getAttribute("id");
-                    String factEvalValue = eval.getTextContent();
-                    newFact.setFactValueById(factEvalId, Boolean.valueOf(factEvalValue));
+                // TODO: Done???
+                Card newCard = new Card(cardID);
+                NodeList stats = eElement.getElementsByTagName("Stat");
+                for(int j=0; j < stats.getLength(); j++) {
+                    Element stat = (Element) stats.item(j);
+                    String cardStatId = stat.getAttribute("id");
+                    String cardStatValue = stat.getTextContent();
+                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
                 }
-                factRepository.addFact(newFact);
+                cardRepository.addCard(newCard);
             }
         }
     }
