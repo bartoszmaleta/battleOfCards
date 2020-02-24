@@ -6,17 +6,21 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import repository.Deck;
 
-public class DeckDao extends  XMLParser {
-    private Deck deck;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DeckDao extends XMLParser {
+
+    private Deck masterDeck;
 
     public DeckDao() {
-        this.deck = new Deck();
+        this.masterDeck = new Deck();
         loadXmlDocument("src/main/resources/Cards.xml");
         parse();
     }
 
-    public Deck getDeck() {
-        return this.deck;
+    public Deck getMasterDeck() {
+        return this.masterDeck;
     }
 
     private void parse() {
@@ -31,14 +35,32 @@ public class DeckDao extends  XMLParser {
                 // TODO: Done
                 Card newCard = new Card(cardID);
                 NodeList stats = eElement.getElementsByTagName("Stat");
-                for(int j=0; j < stats.getLength(); j++) {
+                for (int j = 0; j < stats.getLength(); j++) {
                     Element stat = (Element) stats.item(j);
                     String cardStatId = stat.getAttribute("id");
                     String cardStatValue = stat.getTextContent();
-                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
+                    newCard.setCardValueById(cardStatId, Integer.parseInt(cardStatValue));
                 }
-                deck.addCard(newCard);
+                masterDeck.addCard(newCard);
             }
         }
+    }
+
+    public Deck randomizeDeck(int numberOfCards) {
+        List<Card> masterDeckList = masterDeck.getCardList();
+
+        Deck deck = new Deck();
+
+        List<Integer> usedIndexList = new ArrayList<>();
+
+        while (deck.getCardList().size() < numberOfCards) {
+            int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
+            if (!usedIndexList.contains(cardIndex)) {
+                usedIndexList.add(cardIndex);
+                deck.addCard(masterDeckList.get(cardIndex));
+            }
+        }
+
+        return deck;
     }
 }
