@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cards>
+    <Card name="Papa Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Brainy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Smurfette">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Hefty Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Grouchy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Greedy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Chef Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Vanity Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+        <Card name="Handy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Scaredy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Tracker Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Sloppy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Harmony Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Painter Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Poet Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Farmer Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+        <Card name="Grandpa Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Baby Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Alchemist Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Architect Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Baker Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Enamored Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Finance Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Lazy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+        <Card name="Miner Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Nosey Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Sneezy Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Stinky Smurf">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Gargamel">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+    <Card name="Clackier Cat">
+        <Stats>
+            <Stat id="Strenght">false</Stat>
+            <Stat id="Knowledge">true</Stat>
+            <Stat id="Inteligence">true</Stat>
+            <Stat id="Cunning">true</Stat>
+        </Stats>
+    </Card>
+</Cards>
