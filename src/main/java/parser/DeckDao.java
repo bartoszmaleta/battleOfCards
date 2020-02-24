@@ -57,13 +57,30 @@ public class DeckDao extends XMLParser {
             int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
             if (!usedIndexList.contains(cardIndex)) {
                 usedIndexList.add(cardIndex);
-            } else {
-                while (usedIndexList.contains(cardIndex)) {
-                    cardIndex++;
-                }
+                deck.addCard(masterDeckList.get(cardIndex));
             }
-            deck.addCard(masterDeckList.get(cardIndex));
         }
         return deck;
     }
+
+//    public Deck randomizeDeck(int numberOfCards) {
+//        List<Card> masterDeckList = masterDeck.getCardList();
+//
+//        Deck deck = new Deck();
+//
+//        List<Integer> usedIndexList = new ArrayList<>();
+//
+//        while (deck.getCardList().size() < numberOfCards) {
+//            int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
+//            if (!usedIndexList.contains(cardIndex)) {
+//                usedIndexList.add(cardIndex);
+//            } else {
+//                while (usedIndexList.contains(cardIndex)) {
+//                    cardIndex++;
+//                }
+//            }
+//            deck.addCard(masterDeckList.get(cardIndex));
+//        }
+//        return deck;
+//    }
 }
