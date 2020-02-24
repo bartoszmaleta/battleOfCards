@@ -1,11 +1,11 @@
 package model;
 
-import repository.CardRepository;
+import repository.Deck;
 
 public abstract class Player {
     private String name;
     private String appeal;
-    private CardRepository cardRepository; // Deck
+    private Deck deck; // Deck
 //    private Deck Deck; // Deck
     private int health;
     private int experience;
@@ -15,7 +15,7 @@ public abstract class Player {
     public Player(String name, String appeal) {
         this.name = name;
         this.appeal = appeal;
-        this.cardRepository = new CardRepository();
+        this.deck = new Deck();
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
@@ -33,8 +33,8 @@ public abstract class Player {
         return appeal;
     }
 
-    public CardRepository getCardRepository() {
-        return cardRepository;
+    public Deck getDeck() {
+        return deck;
     }
 
     public int getHealth() {
@@ -51,7 +51,7 @@ public abstract class Player {
 
     public int setStartHealth() {
 //      TODO: health should depends on length of remaining Deck
-        int health = cardRepository.getCardList().size();
+        int health = deck.getCardList().size();
         return health;
     }
 
