@@ -3,6 +3,7 @@ package repository;
 import model.Card;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,6 +22,10 @@ public class Deck {
 
     public List<Card> getCardList() {
         return cardList;
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cardList);
     }
 
     private class CardIterator implements Iterator<Card> {
