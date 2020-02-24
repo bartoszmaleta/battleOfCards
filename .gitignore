@@ -1,6 +1,6 @@
 .idea/
 *.iml
-.xml/
+
 
 #memoryGame.iml
 # Created by https://www.gitignore.io/api/java,intellij
@@ -121,10 +121,10 @@ hs_err_pid*
 
 
 target/
-pom.xml
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
+#pom.xml
+#pom.xml.releaseBackup
+#pom.xml.versionsBackup
+#pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
