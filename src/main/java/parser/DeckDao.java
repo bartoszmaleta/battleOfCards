@@ -57,10 +57,13 @@ public class DeckDao extends XMLParser {
             int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
             if (!usedIndexList.contains(cardIndex)) {
                 usedIndexList.add(cardIndex);
-                deck.addCard(masterDeckList.get(cardIndex));
+            } else {
+                while (usedIndexList.contains(cardIndex)) {
+                    cardIndex++;
+                }
             }
+            deck.addCard(masterDeckList.get(cardIndex));
         }
-
         return deck;
     }
 }
