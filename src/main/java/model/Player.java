@@ -59,6 +59,10 @@ public abstract class Player {
         this.level = level;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void displayPlayerStatistics() {
 //        TODO:
 

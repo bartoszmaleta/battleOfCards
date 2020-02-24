@@ -1,8 +1,8 @@
 package model;
 
 public class PlayerHuman extends Player {
-    public PlayerHuman(String name) {
-        super(name, "\uD83E\uDD20");
+    public PlayerHuman() {
+        super("DefaultName","\uD83E\uDD20");
     }
 
     @Override

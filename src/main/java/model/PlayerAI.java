@@ -2,8 +2,8 @@ package model;
 
 public class PlayerAI extends Player {
 
-    public PlayerAI(String name, String appeal) {
-        super(name, "&");
+    public PlayerAI() {
+        super("Ai", "&");
         // & -----> icon of enemyAI
     }
 
