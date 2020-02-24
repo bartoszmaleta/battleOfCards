@@ -12,14 +12,18 @@ public abstract class Player {
     private int level;
 
 
-    public Player(String name) {
+    public Player(String name, String appeal) {
         this.name = name;
-        this.appeal = "\uD83E\uDD20";
+        this.appeal = appeal;
         this.cardRepository = new CardRepository();
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
     }
+
+    public abstract void turn();
+
+    public abstract void bet();
 
     public String getName() {
         return name;
