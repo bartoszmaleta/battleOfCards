@@ -4,19 +4,19 @@ import model.Card;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import repository.CardRepository;
+import repository.Deck;
 
-public class CardParser extends  XMLParser {
-    private CardRepository cardRepository;
+public class DeckDao extends  XMLParser {
+    private Deck deck;
 
-    public CardParser() {
-        this.cardRepository = new CardRepository();
+    public DeckDao() {
+        this.deck = new Deck();
         loadXmlDocument("src/main/resources/Cards.xml");
         parse();
     }
 
-    public CardRepository getCardRepository() {
-        return this.cardRepository;
+    public Deck getDeck() {
+        return this.deck;
     }
 
     private void parse() {
@@ -37,7 +37,7 @@ public class CardParser extends  XMLParser {
                     String cardStatValue = stat.getTextContent();
                     newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
                 }
-                cardRepository.addCard(newCard);
+                deck.addCard(newCard);
             }
         }
     }

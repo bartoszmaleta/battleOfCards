@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CardRepository {
+public class Deck {
     private Iterator<Card> cardIterator;
     private List<Card> cardList;
 
-    public CardRepository() {
+    public Deck() {
         this.cardIterator = new CardIterator();
         this.cardList = new ArrayList<>();
     }
