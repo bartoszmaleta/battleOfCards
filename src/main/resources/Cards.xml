@@ -1,73 +1,595 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Cards>
-    <Card id="papa">
-        <Description value="Tesla Model S"/>
+    <Card name="Papa Smurf">
         <Stats>
-            <Stat id="family">false</Stat>
-            <Stat id="money">true</Stat>
-            <Stat id="comfort">true</Stat>
-            <Stat id="luxury">true</Stat>
-            <Stat id="ecological">true</Stat>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">89</Stat>
+            <Stat id="Cunning">89</Stat>
         </Stats>
     </Card>
-    <Card id="seat">
-        <Description value="Seat Leon"/>
+    <Card name="Brainy Smurf">
         <Stats>
-            <Stat id="family">false</Stat>
-            <Stat id="money">false</Stat>
-            <Stat id="comfort">true</Stat>
-            <Stat id="luxury">false</Stat>
-            <Stat id="ecological">false</Stat>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">78</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">20</Stat>
         </Stats>
     </Card>
-    <Card id="porsche">
-        <Description value="Porsche 911"/>
+    <Card name="Smurfette">
         <Stats>
-            <Stat id="family">false</Stat>
-            <Stat id="money">true</Stat>
-            <Stat id="comfort">false</Stat>
-            <Stat id="luxury">false</Stat>
-            <Stat id="ecological">false</Stat>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">51</Stat>
         </Stats>
     </Card>
-    <Card id="ford">
-        <Description value="Ford Mondeo"/>
+    <Card name="Hefty Smurf">
         <Stats>
-            <Stat id="family">true</Stat>
-            <Stat id="money">true</Stat>
-            <Stat id="comfort">false</Stat>
-            <Stat id="luxury">false</Stat>
-            <Stat id="ecological">true</Stat>
+            <Stat id="Strength">98</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">30</Stat>
         </Stats>
     </Card>
-    <Card id="toyota">
-        <Description value="Toyota Prius"/>
+    <Card name="Grouchy Smurf">
         <Stats>
-            <Stat id="family">false</Stat>
-            <Stat id="money">false</Stat>
-            <Stat id="comfort">false</Stat>
-            <Stat id="luxury">false</Stat>
-            <Stat id="ecological">true</Stat>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">25</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">25</Stat>
         </Stats>
     </Card>
-    <Card id="mercedes">
-        <Description value="Mercedes S-class"/>
+    <Card name="Greedy Smurf">
         <Stats>
-            <Stat id="family">true</Stat>
-            <Stat id="money">true</Stat>
-            <Stat id="comfort">true</Stat>
-            <Stat id="luxury">true</Stat>
-            <Stat id="ecological">true</Stat>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">25</Stat>
+            <Stat id="Intelligence">28</Stat>
+            <Stat id="Cunning">80</Stat>
         </Stats>
     </Card>
-    <Card id="lamborghini">
-        <Description value="Lamborghini Aventador"/>
+    <Card name="Chef Smurf">
         <Stats>
-            <Stat id="family">false</Stat>
-            <Stat id="money">true</Stat>
-            <Stat id="comfort">false</Stat>
-            <Stat id="luxury">true</Stat>
-            <Stat id="ecological">false</Stat>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">55</Stat>
+        </Stats>
+    </Card>
+    <Card name="Vanity Smurf">
+        <Stats>
+            <Stat id="Streght">40</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">10</Stat>
+        </Stats>
+    </Card>
+    <Card name="Handy Smurf">
+        <Stats>
+            <Stat id="Strength">70</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">60</Stat>
+            <Stat id="Cunning">55</Stat>
+        </Stats>
+    </Card>
+    <Card name="Scaredy Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">10</Stat>
+        </Stats>
+    </Card>
+    <Card name="Tracker Smurf">
+        <Stats>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Sloppy Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Harmony Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">58</Stat>
+            <Stat id="Intelligence">70</Stat>
+            <Stat id="Cunning">0</Stat>
+        </Stats>
+    </Card>
+    <Card name="Painter Smurf">
+        <Stats>
+            <Stat id="Strength">0</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">59</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Poet Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">75</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Farmer Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Grandpa Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">100</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">25</Stat>
+        </Stats>
+    </Card>
+    <Card name="Baby Smurf">
+        <Stats>
+            <Stat id="Strength">0</Stat>
+            <Stat id="Knowledge">0</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Alchemist Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">70</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Architect Smurf">
+        <Stats>
+            <Stat id="Strength">65</Stat>
+            <Stat id="Knowledge">70</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">45</Stat>
+        </Stats>
+    </Card>
+    <Card name="Baker Smurf">
+        <Stats>
+            <Stat id="Strength">70</Stat>
+            <Stat id="Knowledge">55</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Enamored Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">45</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Finance Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">85</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Lazy Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">40</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Miner Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">65</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Nosey Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Sneezy Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Stinky Smurf">
+        <Stats>
+            <Stat id="Strength">60</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">15</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Gargamel">
+        <Stats>
+            <Stat id="Strength">100</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">15</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Clackier Cat">
+        <Stats>
+            <Stat id="Strength">85</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">25</Stat>
+            <Stat id="Cunning">100</Stat>
+        </Stats>
+    </Card>
+    <Card name="Sweepy Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">70</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Tailor Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">60</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Weakling Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">40</Stat>
+            <Stat id="Cunning">60</Stat>
+        </Stats>
+    </Card>
+    <Card name="Wild Smurf">
+        <Stats>
+            <Stat id="Strength">90</Stat>
+            <Stat id="Knowledge">25</Stat>
+            <Stat id="Intelligence">15</Stat>
+            <Stat id="Cunning">60</Stat>
+        </Stats>
+    </Card>
+    <Card name="Weepy Smurf">
+        <Stats>
+            <Stat id="Strength">15</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">25</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Tuffy Smurf">
+        <Stats>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Woolly Smurf">
+        <Stats>
+            <Stat id="Strength">65</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">45</Stat>
+            <Stat id="Cunning">55</Stat>
+        </Stats>
+    </Card>
+    <Card name="Nurse Smurf">
+        <Stats>
+            <Stat id="Streght">70</Stat>
+            <Stat id="Knowledge">85</Stat>
+            <Stat id="Intelligence">75</Stat>
+            <Stat id="Cunning">25</Stat>
+        </Stats>
+    </Card>
+    <Card name="Lucky Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">60</Stat>
+            <Stat id="Cunning">85</Stat>
+        </Stats>
+    </Card>
+    <Card name="Pretentious Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">10</Stat>
+        </Stats>
+    </Card>
+    <Card name="Cook Smurf">
+        <Stats>
+            <Stat id="Strength">40</Stat>
+            <Stat id="Knowledge">55</Stat>
+            <Stat id="Intelligence">40</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Submariner Smurf">
+        <Stats>
+            <Stat id="Strength">60</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Gutsy Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">55</Stat>
+            <Stat id="Intelligence">70</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Navigator Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">75</Stat>
+            <Stat id="Intelligence">45</Stat>
+            <Stat id="Cunning">75</Stat>
+        </Stats>
+    </Card>
+    <Card name="Fisher Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">25</Stat>
+            <Stat id="Cunning">45</Stat>
+        </Stats>
+    </Card>
+    <Card name="Hunter Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">65</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Marco Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">75</Stat>
+            <Stat id="Intelligence">79</Stat>
+            <Stat id="Cunning">55</Stat>
+        </Stats>
+    </Card>
+    <Card name="Flighty Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Don Smurfo">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">70</Stat>
+            <Stat id="Cunning">55</Stat>
+        </Stats>
+    </Card>
+    <Card name="Nobody Smurf">
+        <Stats>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Pushover Smurf">
+        <Stats>
+            <Stat id="Strength">70</Stat>
+            <Stat id="Knowledge">75</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Crazy Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">35</Stat>
+            <Stat id="Intelligence">35</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Narrator Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">85</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Passive-Agressive Smurf">
+        <Stats>
+            <Stat id="Strength">70</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Panicky Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">35</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Social Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">80</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Smooth Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">35</Stat>
+            <Stat id="Intelligence">15</Stat>
+            <Stat id="Cunning">45</Stat>
+        </Stats>
+    </Card>
+    <Card name="Clueless Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">20</Stat>
+            <Stat id="Cunning">45</Stat>
+        </Stats>
+    </Card>
+    <Card name="Party Planner Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">70</Stat>
+            <Stat id="Intelligence">35</Stat>
+            <Stat id="Cunning">45</Stat>
+        </Stats>
+    </Card>
+    <Card name="Vexy Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">25</Stat>
+            <Stat id="Cunning">25</Stat>
+        </Stats>
+    </Card>
+    <Card name="Hackus Smurf">
+        <Stats>
+            <Stat id="Strength">70</Stat>
+            <Stat id="Knowledge">05</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">10</Stat>
+        </Stats>
+    </Card>
+    <Card name="Complinentary Smurf">
+        <Stats>
+            <Stat id="Strength">20</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Drumer Smurf">
+        <Stats>
+            <Stat id="Strength">40</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">55</Stat>
+            <Stat id="Cunning">40</Stat>
+        </Stats>
+    </Card>
+    <Card name="Schemer Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">40</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Dreamy Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">70</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">25</Stat>
+        </Stats>
+    </Card>
+    <Card name="Gullible Smurf">
+        <Stats>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">50</Stat>
+            <Stat id="Intelligence">60</Stat>
+            <Stat id="Cunning">80</Stat>
+        </Stats>
+    </Card>
+    <Card name="Paranoid Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">30</Stat>
+        </Stats>
+    </Card>
+    <Card name="Policeman Smurf">
+        <Stats>
+            <Stat id="Streght">70</Stat>
+            <Stat id="Knowledge">60</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Magician Smurf">
+        <Stats>
+            <Stat id="Strength">40</Stat>
+            <Stat id="Knowledge">70</Stat>
+            <Stat id="Intelligence">60</Stat>
+            <Stat id="Cunning">20</Stat>
+        </Stats>
+    </Card>
+    <Card name="Mime Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">20</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">10</Stat>
+        </Stats>
+    </Card>
+    <Card name="Table-eating Smurf">
+        <Stats>
+            <Stat id="Strength">30</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">50</Stat>
+        </Stats>
+    </Card>
+    <Card name="Karate Smurf">
+        <Stats>
+            <Stat id="Strength">80</Stat>
+            <Stat id="Knowledge">40</Stat>
+            <Stat id="Intelligence">50</Stat>
+            <Stat id="Cunning">60</Stat>
+        </Stats>
+    </Card>
+    <Card name="Winner Smurf">
+        <Stats>
+            <Stat id="Strength">50</Stat>
+            <Stat id="Knowledge">30</Stat>
+            <Stat id="Intelligence">30</Stat>
+            <Stat id="Cunning">90</Stat>
+        </Stats>
+    </Card>
+    <Card name="Loser Smurf">
+        <Stats>
+            <Stat id="Strength">10</Stat>
+            <Stat id="Knowledge">10</Stat>
+            <Stat id="Intelligence">10</Stat>
+            <Stat id="Cunning">20</Stat>
         </Stats>
     </Card>
 </Cards>

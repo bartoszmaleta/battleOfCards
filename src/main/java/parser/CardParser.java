@@ -28,15 +28,7 @@ public class CardParser extends  XMLParser {
 
                 String cardID = eElement.getAttribute("id");
 
-                // Another option
-//                String factDescription2 = eElement.getElementsByTagName("Description")
-//                        .item(0)
-//                        .getAttributes()
-//                        .getNamedItem("value")
-//                        .getTextContent();
-//
-
-                // TODO: Done???
+                // TODO: Done
                 Card newCard = new Card(cardID);
                 NodeList stats = eElement.getElementsByTagName("Stat");
                 for(int j=0; j < stats.getLength(); j++) {
