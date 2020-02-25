@@ -1,4 +1,5 @@
 import comparator.StrengthComparator;
+import controller.Game;
 import exception.RandomizeDeckException;
 import model.Card;
 import model.CardSpec;
@@ -14,7 +15,12 @@ import repository.Deck;
 public class Main
 {
     public static void main( String[] args ) throws RandomizeDeckException {
-//        Deck deck = new DeckDaoXML().randomizeDeck(30);
+        Game game = new Game();
+        game.init();
+        game.play();
+
+
+        //        Deck deck = new DeckDaoXML().randomizeDeck(30);
 //        for (int i = 0; i < deck.getCardList().size(); i++) {
 //            System.out.println(deck.getCardList().get(i).getName());
 //
