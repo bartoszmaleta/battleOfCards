@@ -25,19 +25,18 @@ public class PlayerHuman extends Player {
 
 
         Card attackerCard = attackerDeck.getRandomCard();
-        Card opponnetCard = opponentDeck.getRandomCard();
+        Card opponentCard = opponentDeck.getRandomCard();
+
 //        showAttackerHisRandomCard();
-
-
-
 //        askWhichStatWillFight();
 //        statToFight();
+
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = scanner.nextLine();
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
-                Integer strengthOfOpponentCard = opponnetCard.getStats().get(CardSpec.STRENGTH);
+                Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
                 Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
@@ -45,7 +44,7 @@ public class PlayerHuman extends Player {
 
                 StrengthComparator strengthComparator = new StrengthComparator();
 
-                int whoWin = strengthComparator.compare(attackerCard, opponnetCard);
+                int whoWin = strengthComparator.compare(attackerCard, opponentCard);
                 if (whoWin == 1) {
                     System.out.println("Attacker has higher strength");
                 } else if (whoWin == 0) {
