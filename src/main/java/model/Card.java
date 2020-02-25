@@ -16,7 +16,11 @@ public class Card {
         return this.stats;
     }
 
-    public void setCardValueById(String id, int value) {
+    public String getName() {
+        return name;
+    }
+
+    public void setCardValueById(String id, Integer value) {
         this.stats.put(id, value);
     }
 }
