@@ -13,6 +13,5 @@ public class Main
         for (int i = 0; i < deck.getCardList().size(); i++) {
             System.out.println(deck.getCardList().get(i).getName());
         }
-
     }
 }
