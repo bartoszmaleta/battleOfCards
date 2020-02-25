@@ -13,6 +13,7 @@ public class MainForEnumsTesting {
 
         String strengthVal = CardSpec.STRENGTH.getSpecification();
         System.out.println(strengthVal);
+        // test
 
     }
 }
