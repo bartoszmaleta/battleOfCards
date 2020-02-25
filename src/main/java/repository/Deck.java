@@ -11,20 +11,20 @@ public class Deck {
     private List<Card> cardList;
     private int sizeOfDeck;
 
-    // Constructor with size of Deck
-    public Deck(int sizeOfDeck) throws RandomizeDeckException {
-        this.sizeOfDeck = sizeOfDeck;
-        this.cardIterator = new CardIterator();
-        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
-    }
-
     // Default Constructor
+
     public Deck() throws RandomizeDeckException {
         this.cardIterator = new CardIterator();
         this.cardList = new DeckDaoXML().getCardsList();
         Collections.shuffle(cardList);
     }
 
+    // Constructor with size of Deck
+    public Deck(int sizeOfDeck) throws RandomizeDeckException {
+        this.sizeOfDeck = sizeOfDeck;
+        this.cardIterator = new CardIterator();
+        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
+    }
 
 
     public void addCard(Card card) {

@@ -23,6 +23,7 @@ public class DeckDaoXML {
     private Deck masterDeck;
     private List<Card> cardsList;
 
+    // Default Constructor
     public DeckDaoXML() throws RandomizeDeckException {
         this.cardsList = new ArrayList<>();
         loadXmlDocument("src/main/resources/Cards.xml");
@@ -30,6 +31,7 @@ public class DeckDaoXML {
         this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, 30);
     }
 
+    // Constructor with size of Deck
     public DeckDaoXML(int sizeOfDeck) throws RandomizeDeckException {
         this.cardsList = new ArrayList<>();
         loadXmlDocument("src/main/resources/Cards.xml");
@@ -83,9 +85,28 @@ public class DeckDaoXML {
         }
     }
 
-    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
+    // SZYMON'S
+//    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
 //        List<Card> masterDeckList = masterDeck.getCardList();
-//        List<Card> masterDeckList2 = this.cardsList();
+//
+//        if (numberOfCards > masterDeckList.size()) {
+//            throw new RandomizeDeckException(numberOfCards, masterDeckList.size());
+//        }
+//
+//        Deck deck = new Deck();
+//
+//        Collections.shuffle(masterDeckList);
+//
+//        for (int i = 0; i < numberOfCards; i++) {
+//            deck.addCard(masterDeckList.get(i));
+//        }
+//        return deck;
+//    }
+
+
+    // BARTOSZ'S!!! TO TALK WITH SZYMON!! JUST VARIABLE NAME CHANGED
+    // FROM "masterDeck" to "this.cardList"
+    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
 
         if (numberOfCards > this.cardsList.size()) {
             throw new RandomizeDeckException(numberOfCards, this.cardsList.size());
