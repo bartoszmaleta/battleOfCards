@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Card {
     private String name;
+//    private Map<CardSuite, Integer> stats;
     private Map<String, Integer> stats;
 
     public Card(String name) {
@@ -23,4 +24,6 @@ public class Card {
     public void setCardValueById(String id, Integer value) {
         this.stats.put(id, value);
     }
+
+//    Card.getMap.CardSuite.STRENGHT
 }

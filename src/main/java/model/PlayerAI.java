@@ -1,14 +1,16 @@
 package model;
 
+import exception.RandomizeDeckException;
+
 public class PlayerAI extends Player {
 
-    public PlayerAI() {
+    public PlayerAI() throws RandomizeDeckException {
         super("Ai", "&");
         // & -----> icon of enemyAI
     }
 
     @Override
-    public void turn() {
+    public void attack(Player opponent) {
 //        TODO:
     }
 

@@ -1,6 +1,8 @@
 import comparator.StrengthComparator;
 import exception.RandomizeDeckException;
 import model.Card;
+import model.Player;
+import model.PlayerHuman;
 import parser.DeckDao;
 import repository.Deck;
 
@@ -33,6 +35,14 @@ public class Main
         StrengthComparator strengthComparator = new StrengthComparator();
         int result = strengthComparator.compare(firstCard, secondCard);
         System.out.println(result);
+
+        System.out.println("--------------------------------- Testing attacks");
+
+        Player player1 = new PlayerHuman();
+        Player player2 = new PlayerHuman();
+
+        player1.attack(player2);
+
 
     }
 }

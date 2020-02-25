@@ -2,10 +2,7 @@ package repository;
 
 import model.Card;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Deck {
     private Iterator<Card> cardIterator;
@@ -45,5 +42,10 @@ public class Deck {
         public Card next() {
             return hasNext() ? cardList.get(index++) : null;
         }
+    }
+
+    public Card getRandomCard() {
+        Random rand = new Random();
+        return this.getCardList().get(rand.nextInt(this.getCardList().size()));
     }
 }

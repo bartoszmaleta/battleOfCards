@@ -1,5 +1,7 @@
 package model;
 
+import exception.RandomizeDeckException;
+import parser.DeckDao;
 import repository.Deck;
 
 public abstract class Player {
@@ -12,16 +14,16 @@ public abstract class Player {
     private int level;
 
 
-    public Player(String name, String appeal) {
+    public Player(String name, String appeal) throws RandomizeDeckException {
         this.name = name;
+        this.deck = new DeckDao().randomizeDeck(30);
         this.apparel = appeal;
-        this.deck = new Deck();
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
     }
 
-    public abstract void turn();
+    public abstract void attack(Player opoonent);
 
     public abstract void bet();
 
