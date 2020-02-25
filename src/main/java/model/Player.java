@@ -1,7 +1,7 @@
 package model;
 
 import exception.RandomizeDeckException;
-import parser.DeckDao;
+import parser.DeckDaoXML;
 import repository.Deck;
 
 public abstract class Player {
@@ -16,7 +16,7 @@ public abstract class Player {
 
     public Player(String name, String appeal) throws RandomizeDeckException {
         this.name = name;
-        this.deck = new DeckDao().randomizeDeck(30);
+        this.deck = new Deck(30);
         this.apparel = appeal;
         this.health = setStartHealth();
         this.experience = 0;
