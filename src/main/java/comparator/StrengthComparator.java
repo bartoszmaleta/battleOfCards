@@ -17,11 +17,18 @@ public class StrengthComparator implements Comparator<Card> {
             if (stat.equals("Strength")) {
                 Integer o1Strength = o1CardStats.get("Strength");
                 Integer o2Strength = o2CardStats.get("Strength");
-                return o1Strength > o2Strength ? 1 : 0;
+
+                if (o1Strength > o1Strength) {
+                    return 1;
+                } else if (o1Strength == o2Strength) {
+                    return  0;
+                } else if (o1Strength < o2Strength) {
+                    return -1;
+                }
             }
         }
 
-        return -1;
+        return -10;
     }
 
 }
