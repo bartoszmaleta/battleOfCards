@@ -538,7 +538,7 @@
     </Card>
     <Card name="Policeman Smurf">
         <Stats>
-            <Stat id="Streght">70</Stat>
+            <Stat id="Strength">70</Stat>
             <Stat id="Knowledge">60</Stat>
             <Stat id="Intelligence">30</Stat>
             <Stat id="Cunning">50</Stat>
