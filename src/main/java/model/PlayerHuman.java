@@ -11,6 +11,11 @@ public class PlayerHuman extends Player {
         super("DefaultName","\uD83E\uDD20");
     }
 
+    // parseWithEnums()
+    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
+        super("DefaultName","\uD83E\uDD20");
+    }
+
     @Override
     public void attack(Player opponent) {
 //        TODO:
@@ -32,13 +37,14 @@ public class PlayerHuman extends Player {
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
-                Integer strengthOfOpponentCard = opponnetCard.getStats().get("Strength");
-                Integer strengthOfAttackerCard = attackerCard.getStats().get("Strength");
+                Integer strengthOfOpponentCard = opponnetCard.getStats().get(CardSpec.STRENGTH);
+                Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
                 System.out.println("Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
+
                 int whoWin = strengthComparator.compare(attackerCard, opponnetCard);
                 if (whoWin == 1) {
                     System.out.println("Attacker has higher strength");

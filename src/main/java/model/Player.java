@@ -8,7 +8,6 @@ public abstract class Player {
     private String name;
     private String apparel;
     private Deck deck; // Deck
-//    private Deck Deck; // Deck
     private int health;
     private int experience;
     private int level;
