@@ -4,7 +4,7 @@ import repository.Deck;
 
 public abstract class Player {
     private String name;
-    private String appeal;
+    private String apparel;
     private Deck deck; // Deck
 //    private Deck Deck; // Deck
     private int health;
@@ -14,7 +14,7 @@ public abstract class Player {
 
     public Player(String name, String appeal) {
         this.name = name;
-        this.appeal = appeal;
+        this.apparel = appeal;
         this.deck = new Deck();
         this.health = setStartHealth();
         this.experience = 0;
@@ -30,7 +30,7 @@ public abstract class Player {
     }
 
     public String getAppeal() {
-        return appeal;
+        return apparel;
     }
 
     public Deck getDeck() {
