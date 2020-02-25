@@ -75,6 +75,9 @@ public class DeckDao extends XMLParser {
 //            if (!usedIndexList.contains(cardIndex)) {
 //                usedIndexList.add(cardIndex);
 //            } else {
+//                if (cardIndex == 100) {
+//                    cardIndex = 0;
+//                }
 //                while (usedIndexList.contains(cardIndex)) {
 //                    cardIndex++;
 //                }
