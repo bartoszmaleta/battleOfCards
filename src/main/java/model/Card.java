@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Card {
+    // TODO: iterator for Map!!!!
     private String name;
 //    private Map<CardSuite, Integer> stats;
     private Map<CardSpec, Integer> stats;
@@ -24,5 +25,14 @@ public class Card {
     public void setCardValueById(CardSpec cardSpec, Integer value) {
         this.stats.put(cardSpec, value);
     }
+
+    public void displayStat() {
+        for (CardSpec cardSpec : this.stats.keySet()) {
+            String keyOfMap = cardSpec.getSpecification();
+            String valueOfMap = stats.get(cardSpec).toString();
+            System.out.println(keyOfMap + " " + valueOfMap);
+        }
+    }
+
 
 }

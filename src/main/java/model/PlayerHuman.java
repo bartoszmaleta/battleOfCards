@@ -27,10 +27,17 @@ public class PlayerHuman extends Player {
         Card attackerCard = attackerDeck.getRandomCard();
         Card opponentCard = opponentDeck.getRandomCard();
 
+        System.out.println("\nAttacker Card: \n");
+        attackerCard.displayStat();
+
+        System.out.println("\nOpponent Card: \n");
+        opponentCard.displayStat();
+
 //        showAttackerHisRandomCard();
-//        askWhichStatWillFight();
 //        statToFight();
 
+//        askWhichStatWillFight();
+        System.out.println("\nWhich statistic You want to use?");
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = scanner.nextLine();
 
@@ -75,4 +82,5 @@ public class PlayerHuman extends Player {
     public void bet() {
 //        TODO:
     }
+
 }

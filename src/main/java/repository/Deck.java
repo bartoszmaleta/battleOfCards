@@ -12,7 +12,6 @@ public class Deck {
     private int sizeOfDeck;
 
     // Default Constructor
-
 //    public Deck() throws RandomizeDeckException {
 //        this.cardIterator = new CardIterator();
 //        this.cardList = new DeckDaoXML().getCardsList();
