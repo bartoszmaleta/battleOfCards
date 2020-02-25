@@ -18,7 +18,7 @@ public class StrengthComparator implements Comparator<Card> {
                 Integer o1Strength = o1CardStats.get("Strength");
                 Integer o2Strength = o2CardStats.get("Strength");
 
-                if (o1Strength > o1Strength) {
+                if (o1Strength > o2Strength) {
                     return 1;
                 } else if (o1Strength == o2Strength) {
                     return  0;

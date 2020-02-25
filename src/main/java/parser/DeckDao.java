@@ -33,7 +33,6 @@ public class DeckDao extends XMLParser {
 
                 String cardID = eElement.getAttribute("name");
 
-                // TODO: Done
                 Card newCard = new Card(cardID);
                 NodeList stats = eElement.getElementsByTagName("Stat");
                 for (int j = 0; j < stats.getLength(); j++) {
