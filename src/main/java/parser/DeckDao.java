@@ -6,8 +6,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import repository.Deck;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckDao extends XMLParser {
 
@@ -51,17 +51,48 @@ public class DeckDao extends XMLParser {
 
         Deck deck = new Deck();
 
-        List<Integer> usedIndexList = new ArrayList<>();
+        Set<Integer> indexSet = new HashSet<>();
 
-        while (deck.getCardList().size() < numberOfCards) {
-            int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
-            if (!usedIndexList.contains(cardIndex)) {
-                usedIndexList.add(cardIndex);
-                deck.addCard(masterDeckList.get(cardIndex));
-            }
+        while (indexSet.size() < numberOfCards) {
+            int randomNum = ThreadLocalRandom.current().nextInt(0, masterDeckList.size());
+            indexSet.add(randomNum);
+        }
+
+        for (int index : indexSet) {
+            deck.addCard(masterDeckList.get(index));
         }
         return deck;
     }
+
+//    public Deck randomizeDeck(int numberOfCards) {
+//        List<Card> masterDeckList = masterDeck.getCardList();
+//
+//        Deck deck = new Deck();
+//
+//        List<Integer> usedIndexList = new ArrayList<>();
+//
+//        while (deck.getCardList().size() < numberOfCards) {
+//            int cardIndex = (int) (Math.random() * (masterDeckList.size() - 1) + 0);
+//            if (!usedIndexList.contains(cardIndex)) {
+//                usedIndexList.add(cardIndex);
+//                deck.addCard(masterDeckList.get(cardIndex));
+//            }
+//        }
+//        return deck;
+//    }
+
+//    public Deck randomizeDeck(int numberOfCards) {
+//        List<Card> masterDeckList = masterDeck.getCardList();
+//
+//        Deck deck = new Deck();
+//
+//        Collections.shuffle(masterDeckList);
+//
+//        for (int i = 0; i < numberOfCards; i++) {
+//            deck.addCard(masterDeckList.get(i));
+//        }
+//        return deck;
+//    }
 
 //    public Deck randomizeDeck(int numberOfCards) {
 //        List<Card> masterDeckList = masterDeck.getCardList();
