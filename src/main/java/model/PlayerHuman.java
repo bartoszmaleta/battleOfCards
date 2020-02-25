@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class PlayerHuman extends Player {
     public PlayerHuman() throws RandomizeDeckException {
-        super("DefaultName","\uD83E\uDD20");
+        super("DefaultName", "\uD83E\uDD20");
     }
 
     // parseWithEnums()
     public PlayerHuman(String justForEnums) throws RandomizeDeckException {
-        super("DefaultName","\uD83E\uDD20");
+        super("DefaultName", "\uD83E\uDD20");
     }
 
     @Override
@@ -55,15 +55,20 @@ public class PlayerHuman extends Player {
                     System.out.println("else");
                 }
 
-            // TODO:
+//                TODO
+                break;
+            case "i":
+//                TODO
+                break;
+            case "c":
+//                TODO
+                break;
+            case "k":
+//                TODO
                 break;
             default:
                 System.out.println("Default value");
         }
-
-
-
-
     }
 
     @Override
