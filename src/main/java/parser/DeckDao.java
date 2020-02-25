@@ -30,7 +30,7 @@ public class DeckDao extends XMLParser {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
 
-                String cardID = eElement.getAttribute("id");
+                String cardID = eElement.getAttribute("name");
 
                 // TODO: Done
                 Card newCard = new Card(cardID);
@@ -39,7 +39,7 @@ public class DeckDao extends XMLParser {
                     Element stat = (Element) stats.item(j);
                     String cardStatId = stat.getAttribute("id");
                     String cardStatValue = stat.getTextContent();
-                    newCard.setCardValueById(cardStatId, Integer.parseInt(cardStatValue));
+                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
                 }
                 masterDeck.addCard(newCard);
             }
@@ -51,18 +51,31 @@ public class DeckDao extends XMLParser {
 
         Deck deck = new Deck();
 
-        Set<Integer> indexSet = new HashSet<>();
+        Collections.shuffle(masterDeckList);
 
-        while (indexSet.size() < numberOfCards) {
-            int randomNum = ThreadLocalRandom.current().nextInt(0, masterDeckList.size());
-            indexSet.add(randomNum);
-        }
-
-        for (int index : indexSet) {
-            deck.addCard(masterDeckList.get(index));
+        for (int i = 0; i < numberOfCards; i++) {
+            deck.addCard(masterDeckList.get(i));
         }
         return deck;
     }
+
+//    public Deck randomizeDeck(int numberOfCards) {
+//        List<Card> masterDeckList = masterDeck.getCardList();
+//
+//        Deck deck = new Deck();
+//
+//        Set<Integer> indexSet = new HashSet<>();
+//
+//        while (indexSet.size() < numberOfCards) {
+//            int randomNum = ThreadLocalRandom.current().nextInt(0, masterDeckList.size());
+//            indexSet.add(randomNum);
+//        }
+//
+//        for (int index : indexSet) {
+//            deck.addCard(masterDeckList.get(index));
+//        }
+//        return deck;
+//    }
 
 //    public Deck randomizeDeck(int numberOfCards) {
 //        List<Card> masterDeckList = masterDeck.getCardList();
@@ -77,19 +90,6 @@ public class DeckDao extends XMLParser {
 //                usedIndexList.add(cardIndex);
 //                deck.addCard(masterDeckList.get(cardIndex));
 //            }
-//        }
-//        return deck;
-//    }
-
-//    public Deck randomizeDeck(int numberOfCards) {
-//        List<Card> masterDeckList = masterDeck.getCardList();
-//
-//        Deck deck = new Deck();
-//
-//        Collections.shuffle(masterDeckList);
-//
-//        for (int i = 0; i < numberOfCards; i++) {
-//            deck.addCard(masterDeckList.get(i));
 //        }
 //        return deck;
 //    }
