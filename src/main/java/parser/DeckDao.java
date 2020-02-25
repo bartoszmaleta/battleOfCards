@@ -1,5 +1,6 @@
 package parser;
 
+import exception.RandomizeDeckException;
 import model.Card;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -46,8 +47,12 @@ public class DeckDao extends XMLParser {
         }
     }
 
-    public Deck randomizeDeck(int numberOfCards) {
+    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
         List<Card> masterDeckList = masterDeck.getCardList();
+
+        if (numberOfCards > masterDeckList.size()) {
+            throw new RandomizeDeckException(numberOfCards, masterDeckList.size());
+        }
 
         Deck deck = new Deck();
 
