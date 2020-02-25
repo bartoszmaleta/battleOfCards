@@ -58,7 +58,7 @@
     </Card>
     <Card name="Vanity Smurf">
         <Stats>
-            <Stat id="Streght">40</Stat>
+            <Stat id="Strength">40</Stat>
             <Stat id="Knowledge">50</Stat>
             <Stat id="Intelligence">10</Stat>
             <Stat id="Cunning">10</Stat>

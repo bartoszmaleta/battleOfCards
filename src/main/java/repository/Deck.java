@@ -31,6 +31,10 @@ public class Deck {
     private class CardIterator implements Iterator<Card> {
         int index = 0;
 
+        @Override
+        public void remove() {
+
+        }
 
         @Override
         public boolean hasNext() {
