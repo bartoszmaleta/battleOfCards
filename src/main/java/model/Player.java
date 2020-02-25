@@ -6,7 +6,7 @@ import repository.Deck;
 
 public abstract class Player {
     private String name;
-    private String appeal;
+    private String apparel;
     private Deck deck; // Deck
 //    private Deck Deck; // Deck
     private int health;
@@ -16,8 +16,8 @@ public abstract class Player {
 
     public Player(String name, String appeal) throws RandomizeDeckException {
         this.name = name;
-        this.appeal = appeal;
         this.deck = new DeckDao().randomizeDeck(30);
+        this.apparel = appeal;
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
@@ -32,7 +32,7 @@ public abstract class Player {
     }
 
     public String getAppeal() {
-        return appeal;
+        return apparel;
     }
 
     public Deck getDeck() {
