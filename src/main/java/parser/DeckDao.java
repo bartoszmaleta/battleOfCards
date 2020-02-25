@@ -26,7 +26,7 @@ public class DeckDao extends  XMLParser {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
 
-                String cardID = eElement.getAttribute("id");
+                String cardID = eElement.getAttribute("name");
 
                 // TODO: Done
                 Card newCard = new Card(cardID);
