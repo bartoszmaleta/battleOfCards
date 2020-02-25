@@ -1,17 +1,31 @@
 package repository;
 
+import exception.RandomizeDeckException;
 import model.Card;
+import parser.DeckDaoXML;
 
 import java.util.*;
 
 public class Deck {
     private Iterator<Card> cardIterator;
     private List<Card> cardList;
+    private int sizeOfDeck;
 
-    public Deck() {
+    // Default Constructor
+
+    public Deck() throws RandomizeDeckException {
         this.cardIterator = new CardIterator();
-        this.cardList = new ArrayList<>();
+        this.cardList = new DeckDaoXML().getCardsList();
+        Collections.shuffle(cardList);
     }
+
+    // Constructor with size of Deck
+    public Deck(int sizeOfDeck) throws RandomizeDeckException {
+        this.sizeOfDeck = sizeOfDeck;
+        this.cardIterator = new CardIterator();
+        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
+    }
+
 
     public void addCard(Card card) {
         cardList.add(card);
@@ -21,8 +35,8 @@ public class Deck {
         return cardList;
     }
 
-    public void shuffle() {
-        Collections.shuffle(cardList);
+    public void shuffle(List<Card> listToShuffle) {
+        Collections.shuffle(listToShuffle);
     }
 
     private class CardIterator implements Iterator<Card> {

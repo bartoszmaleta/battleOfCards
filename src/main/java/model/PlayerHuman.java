@@ -32,8 +32,11 @@ public class PlayerHuman extends Player {
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
-//                Integer strengthOfOpponentCard = opponnetCard.getStats().get("Strength");
-//                Integer strengthOfAttackerCard = attackerCard.getStats().get("Strength");
+                Integer strengthOfOpponentCard = opponnetCard.getStats().get("Strength");
+                Integer strengthOfAttackerCard = attackerCard.getStats().get("Strength");
+
+                System.out.println("Attacker Strength = " + strengthOfAttackerCard);
+                System.out.println("Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
                 int whoWin = strengthComparator.compare(attackerCard, opponnetCard);

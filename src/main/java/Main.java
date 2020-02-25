@@ -3,7 +3,7 @@ import exception.RandomizeDeckException;
 import model.Card;
 import model.Player;
 import model.PlayerHuman;
-import parser.DeckDao;
+import parser.DeckDaoXML;
 import repository.Deck;
 
 /**
@@ -13,7 +13,7 @@ import repository.Deck;
 public class Main
 {
     public static void main( String[] args ) throws RandomizeDeckException {
-        Deck deck = new DeckDao().randomizeDeck(30);
+        Deck deck = new DeckDaoXML().randomizeDeck(30);
         for (int i = 0; i < deck.getCardList().size(); i++) {
             System.out.println(deck.getCardList().get(i).getName());
 
