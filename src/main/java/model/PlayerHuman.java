@@ -71,23 +71,8 @@ public class PlayerHuman extends Player {
                 StrengthComparator strengthComparator = new StrengthComparator();
 
                 int whoWin = strengthComparator.compare(attackerCard, opponentCard);
-                if (whoWin == 1) {
-                    System.out.println("Attacker " + this.getName() + " has higher strength");
-                    this.addCoins(pot);
-                    System.out.println("Attacker " + this.getName() + " got " + opponentBet + " coins");
-                } else if (whoWin == 0) {
-                    // TODO: bets and cards move to another round
 
-                    System.out.println("Draw");
-                    addCoins(attackerBet);
-                    opponent.addCoins(opponentBet);
-                } else if (whoWin == -1) {
-                    System.out.println("Opponent " + opponent.getName() + " has higher strength");
-                    opponent.addCoins(pot);
-                    System.out.println("Opponent " + opponent.getName() + " got " + attackerBet + " coins");
-                } else {
-                    System.out.println("else");
-                }
+                checkWhoWon(whoWin, pot, opponent);
 
 //                TODO
                 break;
@@ -108,6 +93,26 @@ public class PlayerHuman extends Player {
         System.out.println();
         System.out.println("Your coins = " + this.getCoins());
         System.out.println("Opponent coins = " + opponent.getCoins());
+    }
+
+    public void checkWhoWon(int whoWin, int pot, Player opponent) {
+        if (whoWin == 1) {
+            System.out.println("Attacker " + this.getName() + " has higher strength");
+            this.addCoins(pot);
+            System.out.println("Attacker " + this.getName() + " got " + pot/2 + " coins");
+        } else if (whoWin == 0) {
+            // TODO: bets and cards move to another round
+
+            System.out.println("Draw");
+            addCoins(pot/2);
+            opponent.addCoins(pot/2);
+        } else if (whoWin == -1) {
+            System.out.println("Opponent " + opponent.getName() + " has higher strength");
+            opponent.addCoins(pot);
+            System.out.println("Opponent " + opponent.getName() + " got " + pot/2 + " coins");
+        } else {
+            System.out.println("else");
+        }
     }
 
     @Override
