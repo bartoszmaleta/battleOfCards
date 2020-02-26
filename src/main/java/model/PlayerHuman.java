@@ -1,9 +1,13 @@
 package model;
 
+import comparator.CunningComparator;
+import comparator.IntelligenceComparator;
+import comparator.KnowledgeComparator;
 import comparator.StrengthComparator;
 import exception.RandomizeDeckException;
 import repository.Deck;
 
+import java.awt.event.KeyListener;
 import java.util.Scanner;
 
 public class PlayerHuman extends Player {
@@ -37,6 +41,12 @@ public class PlayerHuman extends Player {
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = scanner.nextLine();
 
+        int opponentBet = 0;
+
+        int pot;
+
+        int whoWin;
+
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
                 Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
@@ -48,8 +58,6 @@ public class PlayerHuman extends Player {
 
                 System.out.println(opponent.getName() + "\nOpponent Card: \n");
                 opponentCard.displayStats();
-
-                int opponentBet = 0;
 
                 if (attackerBet > 0) {
                     opponentBet = opponent.bet(attackerBet);
@@ -63,27 +71,118 @@ public class PlayerHuman extends Player {
                     System.out.println();
                 }
 
-                int pot = attackerBet + opponentBet;
+                pot = attackerBet + opponentBet;
 
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
                 System.out.println("Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
 
-                int whoWin = strengthComparator.compare(attackerCard, opponentCard);
+                whoWin = strengthComparator.compare(attackerCard, opponentCard);
 
                 checkWhoWon(whoWin, pot, opponent);
-
-//                TODO
                 break;
             case "i":
-//                TODO
+                Integer intelligenceOfOpponentCard = opponentCard.getStats().get(CardSpec.INTELLIGENCE);
+                Integer intelligenceOfAttackerCard = attackerCard.getStats().get(CardSpec.INTELLIGENCE);
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                System.out.println(opponent.getName() + "\nOpponent Card: \n");
+                opponentCard.displayStats();
+
+                if (attackerBet > 0) {
+                    opponentBet = opponent.bet(attackerBet);
+                    if (opponentBet == 0) {
+                        addCoins(attackerBet);
+                        attackerBet = 0;
+                    }
+                }
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                pot = attackerBet + opponentBet;
+
+                System.out.println("Attacker Intelligence = " + intelligenceOfAttackerCard);
+                System.out.println("Opponent Intelligence = " + intelligenceOfOpponentCard);
+
+                IntelligenceComparator intelligenceComparator = new IntelligenceComparator();
+
+                whoWin = intelligenceComparator.compare(attackerCard, opponentCard);
+
+                checkWhoWon(whoWin, pot, opponent);
                 break;
             case "c":
-//                TODO
+                Integer cunningOfOpponentCard = opponentCard.getStats().get(CardSpec.CUNNING);
+                Integer cunningOfAttackerCard = attackerCard.getStats().get(CardSpec.CUNNING);
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                System.out.println(opponent.getName() + "\nOpponent Card: \n");
+                opponentCard.displayStats();
+
+                if (attackerBet > 0) {
+                    opponentBet = opponent.bet(attackerBet);
+                    if (opponentBet == 0) {
+                        addCoins(attackerBet);
+                        attackerBet = 0;
+                    }
+                }
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                pot = attackerBet + opponentBet;
+
+                System.out.println("Attacker Cunning = " + cunningOfAttackerCard);
+                System.out.println("Opponent Cunning = " + cunningOfOpponentCard);
+
+                CunningComparator cunningComparator = new CunningComparator();
+
+                whoWin = cunningComparator.compare(attackerCard, opponentCard);
+
+                checkWhoWon(whoWin, pot, opponent);
                 break;
             case "k":
-//                TODO
+                Integer knowledgeOfOpponentCard = opponentCard.getStats().get(CardSpec.KNOWLEDGE);
+                Integer knowledgeOfAttackerCard = attackerCard.getStats().get(CardSpec.KNOWLEDGE);
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                System.out.println(opponent.getName() + "\nOpponent Card: \n");
+                opponentCard.displayStats();
+
+                if (attackerBet > 0) {
+                    opponentBet = opponent.bet(attackerBet);
+                    if (opponentBet == 0) {
+                        addCoins(attackerBet);
+                        attackerBet = 0;
+                    }
+                }
+
+                for (int i = 0; i < 30; i++) {
+                    System.out.println();
+                }
+
+                pot = attackerBet + opponentBet;
+
+                System.out.println("Attacker Knowledge = " + knowledgeOfAttackerCard);
+                System.out.println("Opponent Knowledge = " + knowledgeOfOpponentCard);
+
+                KnowledgeComparator knowledgeComparator = new KnowledgeComparator();
+
+                whoWin = knowledgeComparator.compare(attackerCard, opponentCard);
+
+                checkWhoWon(whoWin, pot, opponent);
                 break;
             default:
                 System.out.println("Wrong choice ");
@@ -97,7 +196,7 @@ public class PlayerHuman extends Player {
 
     public void checkWhoWon(int whoWin, int pot, Player opponent) {
         if (whoWin == 1) {
-            System.out.println("Attacker " + this.getName() + " has higher strength");
+            System.out.println("Attacker " + this.getName() + " has higher attribute");
             this.addCoins(pot);
             System.out.println("Attacker " + this.getName() + " got " + pot/2 + " coins");
         } else if (whoWin == 0) {
@@ -107,7 +206,7 @@ public class PlayerHuman extends Player {
             addCoins(pot/2);
             opponent.addCoins(pot/2);
         } else if (whoWin == -1) {
-            System.out.println("Opponent " + opponent.getName() + " has higher strength");
+            System.out.println("Opponent " + opponent.getName() + " has higher attribute");
             opponent.addCoins(pot);
             System.out.println("Opponent " + opponent.getName() + " got " + pot/2 + " coins");
         } else {
