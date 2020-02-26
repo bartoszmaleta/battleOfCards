@@ -4,6 +4,8 @@ import exception.RandomizeDeckException;
 import parser.DeckDaoXML;
 import repository.Deck;
 
+import java.io.FileNotFoundException;
+
 public abstract class Player {
     private String name;
     private String apparel;
@@ -25,7 +27,7 @@ public abstract class Player {
         this.coins = 1000;
     }
 
-    public abstract void attack(Player opponent);
+    public abstract void attack(Player opponent) throws FileNotFoundException;
 
     public abstract int bet(int currentBet);
 
