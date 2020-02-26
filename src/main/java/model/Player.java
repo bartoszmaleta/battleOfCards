@@ -81,6 +81,10 @@ public abstract class Player {
         this.coins += amount;
     }
 
+    public void subtractCoins(int amount) {
+        this.coins -= amount;
+    }
+
     public void displayPlayerStatistics() {
 //        TODO:
 

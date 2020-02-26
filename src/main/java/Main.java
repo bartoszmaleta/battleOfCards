@@ -46,6 +46,7 @@ public class Main
         Player player2 = new PlayerHuman("Stefan");
 
         player1.attack(player2);
+        player2.attack(player1);
 
 
     }
