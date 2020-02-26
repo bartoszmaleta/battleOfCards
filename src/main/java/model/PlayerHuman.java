@@ -27,7 +27,11 @@ public class PlayerHuman extends Player {
         System.out.println("\nAttacker Card: \n");
         attackerCard.displayStats();
 
-        int attackerBet = bet(0);
+        int attackerBet = 0;
+
+        if (opponent.getCoins() > 0) {
+            attackerBet = this.bet(0);
+        }
 
         System.out.println("\nWhich statistic You want to use?");
         Scanner scanner = new Scanner(System.in);
@@ -59,18 +63,18 @@ public class PlayerHuman extends Player {
                     System.out.println();
                 }
 
+                int pot = attackerBet + opponentBet;
+
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
-                System.out.println(opponent.getName() + " Opponent Strength = " + strengthOfOpponentCard);
+                System.out.println("Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
 
                 int whoWin = strengthComparator.compare(attackerCard, opponentCard);
                 if (whoWin == 1) {
-                    // TODO if attacker wins, it does not subtract coins from opponent
-                    System.out.println("Attacker has higher strength");
-                    addCoins(opponentBet);
-                    opponent.subtractCoins(opponentBet);
-                    System.out.println("Attacker got " + opponentBet + " coins");
+                    System.out.println("Attacker " + this.getName() + " has higher strength");
+                    this.addCoins(pot);
+                    System.out.println("Attacker " + this.getName() + " got " + opponentBet + " coins");
                 } else if (whoWin == 0) {
                     // TODO: bets and cards move to another round
 
@@ -78,10 +82,9 @@ public class PlayerHuman extends Player {
                     addCoins(attackerBet);
                     opponent.addCoins(opponentBet);
                 } else if (whoWin == -1) {
-                    System.out.println(opponent.getName() + " Opponent has higher strength");
-                    this.subtractCoins(attackerBet);
-                    opponent.addCoins(opponentBet);
-                    System.out.println(opponent.getName() + " Opponent got " + attackerBet + " coins");
+                    System.out.println("Opponent " + opponent.getName() + " has higher strength");
+                    opponent.addCoins(pot);
+                    System.out.println("Opponent " + opponent.getName() + " got " + attackerBet + " coins");
                 } else {
                     System.out.println("else");
                 }
@@ -103,12 +106,15 @@ public class PlayerHuman extends Player {
         // sumarize round
         System.out.println();
         System.out.println();
-        System.out.println(this.getName() + "Your coins = " + this.getCoins());
-        System.out.println(opponent.getName() + "Your coins = " + opponent.getCoins());
-
+        System.out.println("Your coins = " + this.getCoins());
+        System.out.println("Opponent coins = " + opponent.getCoins());
     }
 
     @Override
+    public void displayPlayerStatistics() {
+        super.displayPlayerStatistics();
+    }
+
     public int bet(int currentBet) {
         Scanner s = new Scanner(System.in);
         if (currentBet > 0) {
@@ -116,8 +122,10 @@ public class PlayerHuman extends Player {
                     "Do you want to respond? y/n");
             switch (s.nextLine()) {
                 case "y": {
+                    subtractCoins(currentBet);
                     return currentBet;
-                } case "n": {
+                }
+                case "n": {
                     return 0;
                 }
             }
@@ -143,7 +151,7 @@ public class PlayerHuman extends Player {
                         System.out.println("Not enough coins to place that bet. Try again or quit betting section.\n");
                         s.nextLine();
                     } else {
-                        addCoins(-betAmount);
+                        subtractCoins(betAmount);
                         return betAmount;
                     }
                     break;
