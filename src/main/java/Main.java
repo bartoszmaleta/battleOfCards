@@ -4,17 +4,12 @@ import model.Card;
 import parser.DeckDao;
 import repository.Deck;
 
-/**
- * Hello world!
- *
- */
-public class Main
-{
-    public static void main( String[] args ) throws RandomizeDeckException {
-        Deck deck = new DeckDao().randomizeDeck(30);
+public class Main {
+    public static void main(String[] args) throws RandomizeDeckException {
+        DeckDao dDao = new DeckDao();
+        Deck deck = dDao.randomizeDeck(30);
         for (int i = 0; i < deck.getCardList().size(); i++) {
             System.out.println(deck.getCardList().get(i).getName());
-
         }
 
 //        deck.getCardList().get(i).getStats()

@@ -20,6 +20,11 @@ public class Card {
         return name;
     }
 
+    public void setStat(String label, int stat) {
+
+    }
+
+
     public void setCardValueById(String id, Integer value) {
         this.stats.put(id, value);
     }
