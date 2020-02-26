@@ -1,5 +1,6 @@
 package model;
 
+import com.jakewharton.fliptables.FlipTable;
 import exception.RandomizeDeckException;
 
 public class MainForEnumsTesting {
@@ -23,6 +24,17 @@ public class MainForEnumsTesting {
         System.out.println(player4.getDeck().getCardList().get(0).getStats().get("Strength"));
         System.out.println(player4.getDeck().getCardList().get(0).getStats().get(CardSpec.STRENGTH.getSpecification()));
         System.out.println(player4.getDeck().getCardList().get(0).getStats().get(CardSpec.STRENGTH));
+
+        Integer asd = player4.getDeck().getCardList().get(0).getStats().get(CardSpec.STRENGTH);
+        System.out.println(asd);
+        String qwe = Integer.toString(asd);
+
+        String[] headers = { "Test", "Header" };
+        String[][] data = {
+                { qwe, "Bar" },
+                { "Kit", "Kat" },
+        };
+        System.out.println(FlipTable.of(headers, data));
 
     }
 }
