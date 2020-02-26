@@ -1,5 +1,7 @@
 package model;
 
+import com.jakewharton.fliptables.FlipTable;
+import com.jakewharton.fliptables.FlipTableConverters;
 import exception.RandomizeDeckException;
 import parser.DeckDaoXML;
 import repository.Deck;
@@ -17,10 +19,10 @@ public abstract class Player {
 
 
 
-    public Player(String name, String appeal) throws RandomizeDeckException {
+    public Player(String name, String apparel) throws RandomizeDeckException {
         this.name = name;
         this.deck = new Deck(30);
-        this.apparel = appeal;
+        this.apparel = apparel;
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
@@ -47,6 +49,10 @@ public abstract class Player {
 
     public int getHealth() {
         return health;
+    }
+
+    public void subtractHealth() {
+        this.health -= 1;
     }
 
     public void subtractHealth(int healthToSubtract) {
@@ -89,7 +95,11 @@ public abstract class Player {
 
     public void displayPlayerStatistics() {
 //        TODO:
-
+        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level"};
+        Object[][] data = {
+                {this.health, this.health, this.experience, this.level}
+        };
+        System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
 
     public String toString() {
