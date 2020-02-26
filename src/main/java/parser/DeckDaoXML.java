@@ -40,7 +40,7 @@ public class DeckDaoXML {
 //        this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, sizeOfDeck);
 //    }
 
-    // parseWithEnums()
+    // Constructor parseWithEnums()
     public DeckDaoXML(int sizeOfDeck) throws RandomizeDeckException {
         this.cardsList = new ArrayList<>();
         loadXmlDocument("src/main/resources/Cards.xml");

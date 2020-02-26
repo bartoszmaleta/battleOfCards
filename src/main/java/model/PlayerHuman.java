@@ -28,10 +28,10 @@ public class PlayerHuman extends Player {
         Card opponentCard = opponentDeck.getRandomCard();
 
         System.out.println("\nAttacker Card: \n");
-        attackerCard.displayStat();
+        attackerCard.displayStats();
 
         System.out.println("\nOpponent Card: \n");
-        opponentCard.displayStat();
+        opponentCard.displayStats();
 
 //        showAttackerHisRandomCard();
 //        statToFight();

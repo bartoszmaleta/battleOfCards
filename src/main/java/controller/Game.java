@@ -5,6 +5,8 @@ import model.Player;
 import model.PlayerAI;
 import model.PlayerHuman;
 
+// TODO: revert commit ==> fix bug "-10"...
+
 public class Game {
     Player player1;
     Player player2;
