@@ -15,8 +15,13 @@ public class PlayerAI extends Player {
     }
 
     @Override
-    public int bet() {
-//        TODO:
+    public int bet(int currentBet) {
         return 0;
+    }
+
+
+    @Override
+    public void resolveBet() {
+
     }
 }
