@@ -66,16 +66,21 @@ public class PlayerHuman extends Player {
 
                 int whoWin = strengthComparator.compare(attackerCard, opponentCard);
                 if (whoWin == 1) {
+                    // TODO if attacker wins, it does not subtract coins from opponent
                     System.out.println("Attacker has higher strength");
-                    addCoins(attackerBet + opponentBet);
+                    addCoins(opponentBet);
+                    opponent.subtractCoins(opponentBet);
                     System.out.println("Attacker got " + opponentBet + " coins");
                 } else if (whoWin == 0) {
+                    // TODO: bets and cards move to another round
+
                     System.out.println("Draw");
                     addCoins(attackerBet);
                     opponent.addCoins(opponentBet);
                 } else if (whoWin == -1) {
                     System.out.println(opponent.getName() + " Opponent has higher strength");
-                    opponent.addCoins(attackerBet + opponentBet);
+                    this.subtractCoins(attackerBet);
+                    opponent.addCoins(opponentBet);
                     System.out.println(opponent.getName() + " Opponent got " + attackerBet + " coins");
                 } else {
                     System.out.println("else");
@@ -93,7 +98,7 @@ public class PlayerHuman extends Player {
 //                TODO
                 break;
             default:
-                System.out.println("Default value");
+                System.out.println("Wrong choice ");
         }
         // sumarize round
         System.out.println();
