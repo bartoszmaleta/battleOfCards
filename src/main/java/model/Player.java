@@ -8,10 +8,11 @@ public abstract class Player {
     private String name;
     private String apparel;
     private Deck deck; // Deck
-//    private Deck Deck; // Deck
     private int health;
     private int experience;
     private int level;
+    private int money;
+
 
 
     public Player(String name, String appeal) throws RandomizeDeckException {
@@ -21,9 +22,10 @@ public abstract class Player {
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
+        this.money = 100;
     }
 
-    public abstract void attack(Player opoonent);
+    public abstract void attack(Player opponent);
 
     public abstract void bet();
 
@@ -31,8 +33,12 @@ public abstract class Player {
         return name;
     }
 
-    public String getAppeal() {
+    public String getApparel() {
         return apparel;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
     public Deck getDeck() {
@@ -41,6 +47,10 @@ public abstract class Player {
 
     public int getHealth() {
         return health;
+    }
+
+    public void subtractHealth(int healthToSubtract) {
+        this.health -= healthToSubtract;
     }
 
     public int getExperience() {

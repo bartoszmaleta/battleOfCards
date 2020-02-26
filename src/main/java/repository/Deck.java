@@ -12,14 +12,21 @@ public class Deck {
     private int sizeOfDeck;
 
     // Default Constructor
+//    public Deck() throws RandomizeDeckException {
+//        this.cardIterator = new CardIterator();
+//        this.cardList = new DeckDaoXML().getCardsList();
+//        Collections.shuffle(cardList);
+//    }
+//
+////    // Constructor with size of Deck
+////    public Deck(int sizeOfDeck) throws RandomizeDeckException {
+////        this.sizeOfDeck = sizeOfDeck;
+////        this.cardIterator = new CardIterator();
+////        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
+////    }
 
-    public Deck() throws RandomizeDeckException {
-        this.cardIterator = new CardIterator();
-        this.cardList = new DeckDaoXML().getCardsList();
-        Collections.shuffle(cardList);
-    }
 
-    // Constructor with size of Deck
+    // parseWithEnums()
     public Deck(int sizeOfDeck) throws RandomizeDeckException {
         this.sizeOfDeck = sizeOfDeck;
         this.cardIterator = new CardIterator();

@@ -8,7 +8,12 @@ import java.util.Scanner;
 
 public class PlayerHuman extends Player {
     public PlayerHuman() throws RandomizeDeckException {
-        super("DefaultName","\uD83E\uDD20");
+        super("DefaultName", "\uD83E\uDD20");
+    }
+
+    // parseWithEnums()
+    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
+        super("DefaultName", "\uD83E\uDD20");
     }
 
     @Override
@@ -20,26 +25,33 @@ public class PlayerHuman extends Player {
 
 
         Card attackerCard = attackerDeck.getRandomCard();
-        Card opponnetCard = opponentDeck.getRandomCard();
+        Card opponentCard = opponentDeck.getRandomCard();
+
+        System.out.println("\nAttacker Card: \n");
+        attackerCard.displayStats();
+
+        System.out.println("\nOpponent Card: \n");
+        opponentCard.displayStats();
+
 //        showAttackerHisRandomCard();
-
-
+//        statToFight();
 
 //        askWhichStatWillFight();
-//        statToFight();
+        System.out.println("\nWhich statistic You want to use?");
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = scanner.nextLine();
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
-                Integer strengthOfOpponentCard = opponnetCard.getStats().get("Strength");
-                Integer strengthOfAttackerCard = attackerCard.getStats().get("Strength");
+                Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
+                Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
                 System.out.println("Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
-                int whoWin = strengthComparator.compare(attackerCard, opponnetCard);
+
+                int whoWin = strengthComparator.compare(attackerCard, opponentCard);
                 if (whoWin == 1) {
                     System.out.println("Attacker has higher strength");
                 } else if (whoWin == 0) {
@@ -50,19 +62,25 @@ public class PlayerHuman extends Player {
                     System.out.println("else");
                 }
 
-            // TODO:
+//                TODO
+                break;
+            case "i":
+//                TODO
+                break;
+            case "c":
+//                TODO
+                break;
+            case "k":
+//                TODO
                 break;
             default:
                 System.out.println("Default value");
         }
-
-
-
-
     }
 
     @Override
     public void bet() {
 //        TODO:
     }
+
 }

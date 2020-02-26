@@ -2,6 +2,7 @@ package parser;
 
 import exception.RandomizeDeckException;
 import model.Card;
+import model.CardSpec;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,20 +25,30 @@ public class DeckDaoXML {
     private List<Card> cardsList;
 
     // Default Constructor
-    public DeckDaoXML() throws RandomizeDeckException {
-        this.cardsList = new ArrayList<>();
-        loadXmlDocument("src/main/resources/Cards.xml");
-        parse();
-        this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, 30);
-    }
+//    public DeckDaoXML() throws RandomizeDeckException {
+//        this.cardsList = new ArrayList<>();
+//        loadXmlDocument("src/main/resources/Cards.xml");
+//        parse();
+//        this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, 30);
+//    }
+//
+//    // Constructor with size of Deck
+//    public DeckDaoXML(int sizeOfDeck) throws RandomizeDeckException {
+//        this.cardsList = new ArrayList<>();
+//        loadXmlDocument("src/main/resources/Cards.xml");
+//        parse();
+//        this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, sizeOfDeck);
+//    }
 
-    // Constructor with size of Deck
+    // Constructor parseWithEnums()
     public DeckDaoXML(int sizeOfDeck) throws RandomizeDeckException {
         this.cardsList = new ArrayList<>();
         loadXmlDocument("src/main/resources/Cards.xml");
-        parse();
+        parseWithEnums();
         this.cardsList = getShuffledAndSpecifiedNumberOfCards(this.cardsList, sizeOfDeck);
     }
+
+
 
     public List<Card> getCardsList() {
         return cardsList;
@@ -62,8 +73,32 @@ public class DeckDaoXML {
     public Deck getMasterDeck() {
         return this.masterDeck;
     }
+//
+//    private void parse() {
+//        NodeList cardList = doc.getElementsByTagName("Card");
+//        for (int i = 0; i < cardList.getLength(); i++) {
+//            Node nNode = cardList.item(i);
+//            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+//                Element eElement = (Element) nNode;
+//
+//                String cardID = eElement.getAttribute("name");
+//
+//                Card newCard = new Card(cardID);
+//                NodeList stats = eElement.getElementsByTagName("Stat");
+//                for (int j = 0; j < stats.getLength(); j++) {
+//                    Element stat = (Element) stats.item(j);
+//                    String cardStatId = stat.getAttribute("id");
+//                    String cardStatValue = stat.getTextContent();
+//
+//
+//                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
+//                }
+//                cardsList.add(newCard);
+//            }
+//        }
+//    }
 
-    private void parse() {
+    private void parseWithEnums() {
         NodeList cardList = doc.getElementsByTagName("Card");
         for (int i = 0; i < cardList.getLength(); i++) {
             Node nNode = cardList.item(i);
@@ -78,12 +113,26 @@ public class DeckDaoXML {
                     Element stat = (Element) stats.item(j);
                     String cardStatId = stat.getAttribute("id");
                     String cardStatValue = stat.getTextContent();
-                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
+
+                    if (cardStatId.equals(CardSpec.STRENGTH.getSpecification())) {
+                        newCard.setCardValueById(CardSpec.STRENGTH, Integer.valueOf(cardStatValue));
+                    } else if (cardStatId.equals(CardSpec.KNOWLEDGE.getSpecification())) {
+                        newCard.setCardValueById(CardSpec.KNOWLEDGE, Integer.valueOf(cardStatValue));
+                    } else if (cardStatId.equals(CardSpec.INTELLIGENCE.getSpecification())) {
+                        newCard.setCardValueById(CardSpec.INTELLIGENCE, Integer.valueOf(cardStatValue));
+                    } else if (cardStatId.equals(CardSpec.CUNNING.getSpecification())) {
+                        newCard.setCardValueById(CardSpec.CUNNING, Integer.valueOf(cardStatValue));
+                    }
+//                    newCard.setCardValueById(cardStatId, Integer.valueOf(cardStatValue));
                 }
                 cardsList.add(newCard);
             }
         }
     }
+
+
+
+
 
     // SZYMON'S
 //    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
@@ -106,21 +155,21 @@ public class DeckDaoXML {
 
     // BARTOSZ'S!!! TO TALK WITH SZYMON!! JUST VARIABLE NAME CHANGED
     // FROM "masterDeck" to "this.cardList"
-    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
-
-        if (numberOfCards > this.cardsList.size()) {
-            throw new RandomizeDeckException(numberOfCards, this.cardsList.size());
-        }
-
-        Deck deck = new Deck();
-
-        Collections.shuffle(this.cardsList);
-
-        for (int i = 0; i < numberOfCards; i++) {
-            deck.addCard(this.cardsList.get(i));
-        }
-        return deck;
-    }
+//    public Deck randomizeDeck(int numberOfCards) throws RandomizeDeckException {
+//
+//        if (numberOfCards > this.cardsList.size()) {
+//            throw new RandomizeDeckException(numberOfCards, this.cardsList.size());
+//        }
+//
+//        Deck deck = new Deck();
+//
+//        Collections.shuffle(this.cardsList);
+//
+//        for (int i = 0; i < numberOfCards; i++) {
+//            deck.addCard(this.cardsList.get(i));
+//        }
+//        return deck;
+//    }
 
     public List<Card> getShuffledAndSpecifiedNumberOfCards(List<Card> listToEdit, int numberOfCards) throws RandomizeDeckException {
 
