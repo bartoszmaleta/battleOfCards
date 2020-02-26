@@ -3,7 +3,10 @@ package model;
 import comparator.StrengthComparator;
 import exception.RandomizeDeckException;
 import repository.Deck;
+import services.DataHandler;
 
+import javax.xml.crypto.Data;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class PlayerHuman extends Player {
@@ -17,7 +20,7 @@ public class PlayerHuman extends Player {
 //    }
 
     @Override
-    public void attack(Player opponent) {
+    public void attack(Player opponent) throws FileNotFoundException {
         Deck attackerDeck = this.getDeck();
         Deck opponentDeck = opponent.getDeck();
 
@@ -26,6 +29,7 @@ public class PlayerHuman extends Player {
 
         System.out.println("\nAttacker Card: \n");
         attackerCard.displayStats();
+        DataHandler.printTableWithSpecifiedCard(attackerCard);
 
         int attackerBet = bet(0);
 
@@ -44,6 +48,7 @@ public class PlayerHuman extends Player {
 
                 System.out.println(opponent.getName() + "\nOpponent Card: \n");
                 opponentCard.displayStats();
+                DataHandler.printTableWithSpecifiedCard(opponentCard);
 
                 int opponentBet = 0;
 

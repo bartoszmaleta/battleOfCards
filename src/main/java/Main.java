@@ -8,9 +8,11 @@ import model.PlayerHuman;
 import parser.DeckDaoXML;
 import repository.Deck;
 
+import java.io.FileNotFoundException;
+
 public class Main
 {
-    public static void main( String[] args ) throws RandomizeDeckException {
+    public static void main( String[] args ) throws RandomizeDeckException, FileNotFoundException {
         Game game = new Game();
         game.init();
         game.play();
