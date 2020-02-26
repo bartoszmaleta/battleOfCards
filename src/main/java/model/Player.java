@@ -1,29 +1,31 @@
 package model;
 
+import exception.RandomizeDeckException;
+import parser.DeckDaoXML;
 import repository.Deck;
 
 public abstract class Player {
     private String name;
     private String apparel;
     private Deck deck; // Deck
-//    private Deck Deck; // Deck
     private int health;
     private int experience;
     private int level;
     private int coins;
 
 
-    public Player(String name, String appeal) {
+
+    public Player(String name, String appeal) throws RandomizeDeckException {
         this.name = name;
+        this.deck = new Deck(30);
         this.apparel = appeal;
-        this.deck = new Deck();
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
         this.coins = 1000;
     }
 
-    public abstract void turn();
+    public abstract void attack(Player opponent);
 
     public abstract int bet();
 
@@ -31,8 +33,12 @@ public abstract class Player {
         return name;
     }
 
-    public String getAppeal() {
+    public String getApparel() {
         return apparel;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
     public Deck getDeck() {
@@ -41,6 +47,10 @@ public abstract class Player {
 
     public int getHealth() {
         return health;
+    }
+
+    public void subtractHealth(int healthToSubtract) {
+        this.health -= healthToSubtract;
     }
 
     public int getExperience() {

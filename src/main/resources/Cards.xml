@@ -298,7 +298,7 @@
     </Card>
     <Card name="Nurse Smurf">
         <Stats>
-            <Stat id="Streght">70</Stat>
+            <Stat id="Strength">70</Stat>
             <Stat id="Knowledge">85</Stat>
             <Stat id="Intelligence">75</Stat>
             <Stat id="Cunning">25</Stat>
@@ -538,7 +538,7 @@
     </Card>
     <Card name="Policeman Smurf">
         <Stats>
-            <Stat id="Streght">70</Stat>
+            <Stat id="Strength">70</Stat>
             <Stat id="Knowledge">60</Stat>
             <Stat id="Intelligence">30</Stat>
             <Stat id="Cunning">50</Stat>

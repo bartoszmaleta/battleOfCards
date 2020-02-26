@@ -1,20 +1,38 @@
 package repository;
 
+import exception.RandomizeDeckException;
 import model.Card;
+import parser.DeckDaoXML;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Deck {
     private Iterator<Card> cardIterator;
     private List<Card> cardList;
+    private int sizeOfDeck;
 
-    public Deck() {
+    // Default Constructor
+//    public Deck() throws RandomizeDeckException {
+//        this.cardIterator = new CardIterator();
+//        this.cardList = new DeckDaoXML().getCardsList();
+//        Collections.shuffle(cardList);
+//    }
+//
+////    // Constructor with size of Deck
+////    public Deck(int sizeOfDeck) throws RandomizeDeckException {
+////        this.sizeOfDeck = sizeOfDeck;
+////        this.cardIterator = new CardIterator();
+////        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
+////    }
+
+
+    // parseWithEnums()
+    public Deck(int sizeOfDeck) throws RandomizeDeckException {
+        this.sizeOfDeck = sizeOfDeck;
         this.cardIterator = new CardIterator();
-        this.cardList = new ArrayList<>();
+        this.cardList = new DeckDaoXML(sizeOfDeck).getCardsList();
     }
+
 
     public void addCard(Card card) {
         cardList.add(card);
@@ -24,8 +42,8 @@ public class Deck {
         return cardList;
     }
 
-    public void shuffle() {
-        Collections.shuffle(cardList);
+    public void shuffle(List<Card> listToShuffle) {
+        Collections.shuffle(listToShuffle);
     }
 
     private class CardIterator implements Iterator<Card> {
@@ -45,5 +63,10 @@ public class Deck {
         public Card next() {
             return hasNext() ? cardList.get(index++) : null;
         }
+    }
+
+    public Card getRandomCard() {
+        Random rand = new Random();
+        return this.getCardList().get(rand.nextInt(this.getCardList().size()));
     }
 }

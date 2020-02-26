@@ -1,25 +1,36 @@
 import comparator.StrengthComparator;
+import controller.Game;
 import exception.RandomizeDeckException;
 import model.Card;
-import parser.DeckDao;
+import model.CardSpec;
+import model.Player;
+import model.PlayerHuman;
+import parser.DeckDaoXML;
 import repository.Deck;
 
-public class Main {
-    public static void main(String[] args) throws RandomizeDeckException {
-        DeckDao dDao = new DeckDao();
-        Deck deck = dDao.randomizeDeck(30);
-        for (int i = 0; i < deck.getCardList().size(); i++) {
-            System.out.println(deck.getCardList().get(i).getName());
-        }
+public class Main
+{
+    public static void main( String[] args ) throws RandomizeDeckException {
+        Game game = new Game();
+        game.init();
+        game.play();
 
-//        deck.getCardList().get(i).getStats()
+
+        //        Deck deck = new DeckDaoXML().randomizeDeck(30);
+//        for (int i = 0; i < deck.getCardList().size(); i++) {
+//            System.out.println(deck.getCardList().get(i).getName());
+//
+//        }
+
+
+        Deck deck = new Deck(30);
 
         System.out.println();
         System.out.println();
-        Integer strengthOfFirstCard = deck.getCardList().get(0).getStats().get("Strength");
+        Integer strengthOfFirstCard = deck.getCardList().get(0).getStats().get(CardSpec.STRENGTH);
         System.out.println("1 card = " + strengthOfFirstCard);
 
-        Integer strengthOfSecondCard = deck.getCardList().get(1).getStats().get("Strength");
+        Integer strengthOfSecondCard = deck.getCardList().get(1).getStats().get(CardSpec.STRENGTH);
         System.out.println("2 card = " + strengthOfSecondCard);
 
         Card firstCard = deck.getCardList().get(0);
@@ -28,6 +39,14 @@ public class Main {
         StrengthComparator strengthComparator = new StrengthComparator();
         int result = strengthComparator.compare(firstCard, secondCard);
         System.out.println(result);
+
+        System.out.println("--------------------------------- Testing attacks");
+
+        Player player1 = new PlayerHuman();
+        Player player2 = new PlayerHuman();
+
+        player1.attack(player2);
+
 
     }
 }
