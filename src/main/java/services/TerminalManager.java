@@ -42,4 +42,10 @@ public class TerminalManager {
     public static void emptyLinesThree() {
         System.out.println("\n\n");
     }
+
+    public static void thirtyLines() {
+        for (int i = 0; i < 30; i++) {
+            System.out.println();
+        }
+    }
 }
