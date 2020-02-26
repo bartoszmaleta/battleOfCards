@@ -13,21 +13,17 @@ public class KnowledgeComparator implements Comparator<Card> {
         Map<CardSpec, Integer> o1CardStats = o1.getStats();
         Map<CardSpec, Integer> o2CardStats = o2.getStats();
 
-        for (CardSpec stat : o1CardStats.keySet()) {
-            if (stat.getSpecification().equals("Knowledge")) {
-                Integer o1Knowledge = o1CardStats.get("Knowledge");
-                Integer o2Knowledge = o2CardStats.get("Knowledge");
+        Integer o1Knowledge = o1CardStats.get(CardSpec.KNOWLEDGE);
+        Integer o2Knowledge = o2CardStats.get(CardSpec.KNOWLEDGE);
 
-                if (o1Knowledge > o1Knowledge) {
-                    return 1;
-                } else if (o1Knowledge == o2Knowledge) {
-                    return  0;
-                } else if (o1Knowledge < o2Knowledge) {
-                    return -1;
-                }
-            }
+        if (o1Knowledge > o2Knowledge) {
+            return 1;
+        } else if (o1Knowledge == o2Knowledge) {
+            return 0;
+        } else if (o1Knowledge < o2Knowledge) {
+            return -1;
         }
-
-        return -10;
+        return 10;
     }
+
 }
