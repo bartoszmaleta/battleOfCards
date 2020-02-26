@@ -20,14 +20,14 @@ public class Game {
 
 
     public void playPvP() throws RandomizeDeckException {
-        player1 = new PlayerHuman();
-        player2 = new PlayerHuman();
+        player1 = new PlayerHuman("Andrzej");
+        player2 = new PlayerHuman("Stefan");
 //      TODO:
 
     }
 
     public void PvAI() throws RandomizeDeckException {
-        player1 = new PlayerHuman();
+        player1 = new PlayerHuman("Andrzej");
         ai = new PlayerAI();
 //      TODO:
 

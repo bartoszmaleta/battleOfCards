@@ -342,6 +342,7 @@
             <Stat id="Knowledge">55</Stat>
             <Stat id="Intelligence">70</Stat>
             <Stat id="Cunning">30</Stat>
+<!--            <Stat id="reosurce/graphic/gutsy_smurf.txt">0</Stat>-->
         </Stats>
     </Card>
     <Card name="Navigator Smurf">

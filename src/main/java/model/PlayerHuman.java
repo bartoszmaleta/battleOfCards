@@ -7,14 +7,14 @@ import repository.Deck;
 import java.util.Scanner;
 
 public class PlayerHuman extends Player {
-    public PlayerHuman() throws RandomizeDeckException {
-        super("DefaultName", "\uD83E\uDD20");
+    public PlayerHuman(String name) throws RandomizeDeckException {
+        super(name, "\uD83E\uDD20");
     }
 
     // parseWithEnums()
-    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
-        super("DefaultName", "\uD83E\uDD20");
-    }
+//    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
+//        super("DefaultName", "\uD83E\uDD20");
+//    }
 
     @Override
     public void attack(Player opponent) {
@@ -42,7 +42,7 @@ public class PlayerHuman extends Player {
                     System.out.println();
                 }
 
-                System.out.println("\nOpponent Card: \n");
+                System.out.println(opponent.getName() + "\nOpponent Card: \n");
                 opponentCard.displayStats();
 
                 int opponentBet = 0;
@@ -60,7 +60,7 @@ public class PlayerHuman extends Player {
                 }
 
                 System.out.println("Attacker Strength = " + strengthOfAttackerCard);
-                System.out.println("Opponent Strength = " + strengthOfOpponentCard);
+                System.out.println(opponent.getName() + " Opponent Strength = " + strengthOfOpponentCard);
 
                 StrengthComparator strengthComparator = new StrengthComparator();
 
@@ -74,9 +74,9 @@ public class PlayerHuman extends Player {
                     addCoins(attackerBet);
                     opponent.addCoins(opponentBet);
                 } else if (whoWin == -1) {
-                    System.out.println("Opponent has higher strength");
+                    System.out.println(opponent.getName() + " Opponent has higher strength");
                     opponent.addCoins(attackerBet + opponentBet);
-                    System.out.println("Defender got " + attackerBet + " coins");
+                    System.out.println(opponent.getName() + " Opponent got " + attackerBet + " coins");
                 } else {
                     System.out.println("else");
                 }
@@ -95,6 +95,12 @@ public class PlayerHuman extends Player {
             default:
                 System.out.println("Default value");
         }
+        // sumarize round
+        System.out.println();
+        System.out.println();
+        System.out.println(this.getName() + "Your coins = " + this.getCoins());
+        System.out.println(opponent.getName() + "Your coins = " + opponent.getCoins());
+
     }
 
     @Override

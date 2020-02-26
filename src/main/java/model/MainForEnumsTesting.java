@@ -17,7 +17,7 @@ public class MainForEnumsTesting {
 
 
         System.out.println("--------------");
-        Player player4 = new PlayerHuman();
+        Player player4 = new PlayerHuman("Bartosz");
         System.out.println(player4.getDeck().getCardList().get(0).getName());;
         System.out.println(player4.getDeck().getCardList().get(0).getStats().keySet().toString());;
         System.out.println(player4.getDeck().getCardList().get(0).getStats().get("Strength"));

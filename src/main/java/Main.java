@@ -42,8 +42,8 @@ public class Main
 //
 //        System.out.println("--------------------------------- Testing attacks");
 
-        Player player1 = new PlayerHuman();
-        Player player2 = new PlayerHuman();
+        Player player1 = new PlayerHuman("Andrzej");
+        Player player2 = new PlayerHuman("Stefan");
 
         player1.attack(player2);
 
