@@ -221,11 +221,17 @@ public class PlayerHuman extends Player {
         System.out.println();
         System.out.println();
 
-        System.out.println(this.getName() + " Your health = " + this.getHealth());
-        System.out.println("Your coins = " + this.getCoins());
+//        System.out.println(this.getName() + " Your health = " + this.getHealth());
+//        System.out.println("Your coins = " + this.getCoins());
+//
+//        System.out.println(opponent.getName() + " Your health = " + opponent.getHealth());
+//        System.out.println("Opponent coins = " + opponent.getCoins());
 
-        System.out.println(opponent.getName() + " Your health = " + opponent.getHealth());
-        System.out.println("Opponent coins = " + opponent.getCoins());
+        System.out.println(this.getName() + " statistics");
+        this.displayPlayerStatistics();
+
+        System.out.println(opponent.getName() + " statistics");
+        opponent.displayPlayerStatistics();
 
         TerminalManager.pressAnyKeyToContinue();
 
@@ -262,7 +268,9 @@ public class PlayerHuman extends Player {
                     opponent.getDeck().getCardList().remove(card);
                 }
             }
-            this.subtractHealth(1);
+            this.setHealth();
+            opponent.setHealth();
+//            this.subtractHealth(1);
 
         } else if (whowin == 0) {
             // TODO:
@@ -275,7 +283,9 @@ public class PlayerHuman extends Player {
                     this.getDeck().getCardList().remove(card);
                 }
             }
-            opponent.subtractHealth(1);
+            this.setHealth();
+            opponent.setHealth();
+//            opponent.subtractHealth(1);
         }
     }
 

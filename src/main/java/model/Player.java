@@ -43,6 +43,11 @@ public abstract class Player {
         return apparel;
     }
 
+    public void setHealth() {
+        int health = this.deck.getCardList().size();
+        this.health = health;
+    }
+
     public Deck getDeck() {
         return deck;
     }
@@ -97,7 +102,7 @@ public abstract class Player {
 //        TODO:
         String[] headers = {"Remaining Cards", "Coins", "Experience", "Level"};
         Object[][] data = {
-                {this.health, this.health, this.experience, this.level}
+                {this.health, this.coins, this.experience, this.level}
         };
         System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
