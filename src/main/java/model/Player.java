@@ -27,7 +27,9 @@ public abstract class Player {
 
     public abstract void attack(Player opponent);
 
-    public abstract int bet();
+    public abstract int bet(int currentBet);
+
+    public abstract void resolveBet();
 
     public String getName() {
         return name;
@@ -35,10 +37,6 @@ public abstract class Player {
 
     public String getApparel() {
         return apparel;
-    }
-
-    public int getMoney() {
-        return money;
     }
 
     public Deck getDeck() {
@@ -79,7 +77,7 @@ public abstract class Player {
         this.name = name;
     }
 
-    public void setCoins(int amount) {
+    public void addCoins(int amount) {
         this.coins += amount;
     }
 
