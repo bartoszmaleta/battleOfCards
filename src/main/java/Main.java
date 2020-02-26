@@ -8,10 +8,6 @@ import model.PlayerHuman;
 import parser.DeckDaoXML;
 import repository.Deck;
 
-/**
- * Hello world!
- *
- */
 public class Main
 {
     public static void main( String[] args ) throws RandomizeDeckException {

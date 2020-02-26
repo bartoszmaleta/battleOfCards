@@ -11,7 +11,7 @@ public abstract class Player {
     private int health;
     private int experience;
     private int level;
-    private int money;
+    private int coins;
 
 
 
@@ -22,12 +22,12 @@ public abstract class Player {
         this.health = setStartHealth();
         this.experience = 0;
         this.level = 1;
-        this.money = 100;
+        this.coins = 1000;
     }
 
     public abstract void attack(Player opponent);
 
-    public abstract void bet();
+    public abstract int bet();
 
     public String getName() {
         return name;
@@ -61,6 +61,10 @@ public abstract class Player {
         return level;
     }
 
+    public int getCoins() {
+        return coins;
+    }
+
     public int setStartHealth() {
 //      TODO: health should depends on length of remaining Deck
         int health = deck.getCardList().size();
@@ -73,6 +77,10 @@ public abstract class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCoins(int amount) {
+        this.coins += amount;
     }
 
     public void displayPlayerStatistics() {
