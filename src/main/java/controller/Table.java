@@ -29,20 +29,39 @@ public class Table {
     private void playGame(int numberOfPlayers) throws RandomizeDeckException, FileNotFoundException {
         System.out.println("playGame()");
         if (numberOfPlayers > 1) {
-            System.out.println("What is the name of the Player 1");
+            System.out.println("What is the name of the Player 1?");
             String nameOfPlayer1 = scanner.nextLine();
             player1 = new PlayerHuman(nameOfPlayer1);
 
-            System.out.println("What is the name of the Player 2");
+            System.out.println("What is the name of the Player 2?");
             String nameOfPlayer2 = scanner.nextLine();
             player2 = new PlayerHuman(nameOfPlayer2);
 
             playPvP(player1, player2);
         } else {
+            System.out.println("What is the name of the Player?");
             String nameOfPlayer1 = scanner.nextLine();
             player1 = new PlayerHuman(nameOfPlayer1);
-            playerAi = new PlayerAI();
 
+            boolean isGoodModeChoice = true;
+            while (isGoodModeChoice) {
+                System.out.println("Choose ai level?\n(e) - easy\n(h) - hard");
+                String aiMode = scanner.nextLine().toLowerCase();
+                switch (aiMode) {
+                    case "e":
+                        aiMode = "easy";
+                        isGoodModeChoice = false;
+                        break;
+                    case "h":
+                        aiMode = "hard";
+                        isGoodModeChoice = false;
+                        break;
+                    default:
+                        System.out.println("Wrong level choosed!");
+                }
+            }
+
+            playerAi = new PlayerAI("easy");
             playPvAi(player1, playerAi);
         }
     }
