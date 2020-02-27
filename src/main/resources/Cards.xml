@@ -101,12 +101,12 @@
             <Stat id="Strength">10</Stat>
             <Stat id="Knowledge">58</Stat>
             <Stat id="Intelligence">70</Stat>
-            <Stat id="Cunning">0</Stat>
+            <Stat id="Cunning">00</Stat>
         </Stats>
     </Card>
     <Card name="Painter Smurf">
         <Stats>
-            <Stat id="Strength">0</Stat>
+            <Stat id="Strength">00</Stat>
             <Stat id="Knowledge">50</Stat>
             <Stat id="Intelligence">59</Stat>
             <Stat id="Cunning">20</Stat>
@@ -138,8 +138,8 @@
     </Card>
     <Card name="Baby Smurf">
         <Stats>
-            <Stat id="Strength">0</Stat>
-            <Stat id="Knowledge">0</Stat>
+            <Stat id="Strength">00</Stat>
+            <Stat id="Knowledge">00</Stat>
             <Stat id="Intelligence">10</Stat>
             <Stat id="Cunning">20</Stat>
         </Stats>
