@@ -9,8 +9,8 @@ import java.io.FileNotFoundException;
 //       - healthCalculating loadingBar
 //       - clearScreen()
 //       - allignment
-//       -
-//       -
+//       - experience dependency
+//       - level dependency
 
 public class Main {
     public static void main(String[] args) throws RandomizeDeckException, FileNotFoundException {

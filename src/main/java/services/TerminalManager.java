@@ -62,4 +62,16 @@ public class TerminalManager {
         System.out.println("7. Exit program");
 
     }
+
+    public static void blankLines(int numberOfBlankLines) {
+        StringBuffer result = new StringBuffer();
+
+        for (int i = 1; i < numberOfBlankLines; i++) {
+            String blankLine = "\n";
+            result.append(blankLine);
+        }
+        System.out.println(result);
+        // return result;
+
+    }
 }

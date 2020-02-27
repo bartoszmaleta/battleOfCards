@@ -1,6 +1,7 @@
 package controller;
 
 import exception.RandomizeDeckException;
+import services.DataHandler;
 import services.TerminalManager;
 
 import java.io.FileNotFoundException;
@@ -30,6 +31,7 @@ public class Game {
         System.out.println("play()");
 
         TerminalManager.displayWelcomeScreen();
+        DataHandler.printFromFile("src/main/java/graphic.txt/WelcomeScreen.txt");
         // Menu
         Scanner scanner = new Scanner(System.in);
 

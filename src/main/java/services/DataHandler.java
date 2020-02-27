@@ -93,9 +93,9 @@ public class DataHandler {
         Scanner input = new Scanner(new File(filepath));
 
         while (input.hasNextLine()) {
-            System.out.print(Color.CYAN);
+//            System.out.print(Color.CYAN);
             System.out.println(input.nextLine());
         }
-        System.out.println(Color.RESET);
+//        System.out.println(Color.RESET);
     }
 }
