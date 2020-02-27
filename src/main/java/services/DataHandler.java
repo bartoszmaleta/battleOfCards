@@ -26,11 +26,43 @@ public class DataHandler {
             dataInString += input.nextLine() + "\n";
         }
 
-//        System.out.println(dataInString);
-        String strengthOfCard = Integer.toString(card.getStats().get(CardSpec.STRENGTH));
-        String knowledgeOfCard = Integer.toString(card.getStats().get(CardSpec.KNOWLEDGE));
-        String intelligenceOfCard = Integer.toString(card.getStats().get(CardSpec.INTELLIGENCE));
-        String cunningOfCard = Integer.toString(card.getStats().get(CardSpec.CUNNING));
+        Integer strengthInt = card.getStats().get(CardSpec.STRENGTH);
+        Integer knowledgeInt = card.getStats().get(CardSpec.KNOWLEDGE);
+        Integer intelligenceInt = card.getStats().get(CardSpec.INTELLIGENCE);
+        Integer cunningInt = card.getStats().get(CardSpec.CUNNING);
+        String strengthOfCard;
+        String knowledgeOfCard;
+        String intelligenceOfCard;
+        String cunningOfCard;
+
+        if (strengthInt < 10) {
+            strengthOfCard = "0" + Integer.toString(card.getStats().get(CardSpec.STRENGTH));
+        } else {
+            strengthOfCard = Integer.toString(card.getStats().get(CardSpec.STRENGTH));
+        }
+
+        if (knowledgeInt < 10) {
+            knowledgeOfCard = "0" + Integer.toString(card.getStats().get(CardSpec.KNOWLEDGE));
+        } else {
+            knowledgeOfCard = Integer.toString(card.getStats().get(CardSpec.KNOWLEDGE));
+        }
+
+        if (intelligenceInt < 10) {
+            intelligenceOfCard = "0" + Integer.toString(card.getStats().get(CardSpec.INTELLIGENCE));
+        } else {
+            intelligenceOfCard = Integer.toString(card.getStats().get(CardSpec.INTELLIGENCE));
+        }
+
+        if (cunningInt < 10) {
+            cunningOfCard = "0" + Integer.toString(card.getStats().get(CardSpec.CUNNING));
+        } else {
+            cunningOfCard = Integer.toString(card.getStats().get(CardSpec.CUNNING));
+        }
+//
+//        String strengthOfCard = Integer.toString(card.getStats().get(CardSpec.STRENGTH));
+//        String knowledgeOfCard = Integer.toString(card.getStats().get(CardSpec.KNOWLEDGE));
+//        String intelligenceOfCard = Integer.toString(card.getStats().get(CardSpec.INTELLIGENCE));
+//        String cunningOfCard = Integer.toString(card.getStats().get(CardSpec.CUNNING));
 
         dataInString = dataInString.replaceAll("11", strengthOfCard);
         dataInString = dataInString.replaceAll("22", knowledgeOfCard);
