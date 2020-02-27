@@ -61,6 +61,5 @@ public class TerminalManager {
         System.out.println("6. ");
         System.out.println("7. Exit program");
 
-        TerminalManager.emptyLinesThree();
     }
 }
