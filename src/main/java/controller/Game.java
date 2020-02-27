@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Game {
-    Table table;
+    private Table table;
 
     public Game() throws RandomizeDeckException, FileNotFoundException {
         init();
@@ -15,21 +15,14 @@ public class Game {
 
 
     public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
-//      TODO:
         System.out.println("optionPVP");
         table = new Table(2);
 
     }
 
     public void optionPvAi() throws RandomizeDeckException, FileNotFoundException {
-//      TODO:
         System.out.println("optionPvAi");
         table = new Table(1);
-    }
-
-    public void init2() {
-//      TODO:
-
     }
 
     public void init() throws RandomizeDeckException, FileNotFoundException {
