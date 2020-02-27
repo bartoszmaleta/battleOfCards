@@ -2,6 +2,7 @@ package model;
 
 import com.jakewharton.fliptables.FlipTable;
 import exception.RandomizeDeckException;
+import services.TerminalManager;
 
 public class MainForEnumsTesting {
     public static void main(String[] args) throws RandomizeDeckException {
@@ -34,6 +35,9 @@ public class MainForEnumsTesting {
                 { qwe, "Bar" },
                 { "Kit", "Kat" },
         };
+
+        TerminalManager.pressAnyKeyToContinue();
+        TerminalManager.clearScreen();
         System.out.println(FlipTable.of(headers, data));
 
     }

@@ -7,6 +7,7 @@ import comparator.StrengthComparator;
 import exception.RandomizeDeckException;
 import repository.Deck;
 import services.DataHandler;
+import services.TerminalManager;
 
 import javax.xml.crypto.Data;
 import java.io.FileNotFoundException;
@@ -31,9 +32,11 @@ public class PlayerHuman extends Player {
         Card attackerCard = attackerDeck.getRandomCard();
         Card opponentCard = opponentDeck.getRandomCard();
 
-        System.out.println("\nAttacker Card: \n");
-        attackerCard.displayStats();
+        // Attacker
+        System.out.println("\n" + this.getName() + " ROUND! \n");
+//        attackerCard.displayStats();
         DataHandler.printTableWithSpecifiedCard(attackerCard);
+        this.displayPlayerStatistics();
 
         int attackerBet = 0;
 
@@ -49,20 +52,23 @@ public class PlayerHuman extends Player {
 
         int pot;
 
-        int whoWin;
+        int whoWin = 0;
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
                 Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
                 Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
-                System.out.println(opponent.getName() + "\nOpponent Card: \n");
-                opponentCard.displayStats();
+                TerminalManager.clearScreen();
+
+                System.out.println("\n" + opponent.getName() + " ROUND! \n");
+//                opponentCard.displayStats();
                 DataHandler.printTableWithSpecifiedCard(opponentCard);
+                opponent.displayPlayerStatistics();
 
                 if (attackerBet > 0) {
                     opponentBet = opponent.bet(attackerBet);
@@ -72,9 +78,11 @@ public class PlayerHuman extends Player {
                     }
                 }
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+                TerminalManager.clearScreen();
+
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
                 pot = attackerBet + opponentBet;
 
@@ -91,12 +99,16 @@ public class PlayerHuman extends Player {
                 Integer intelligenceOfOpponentCard = opponentCard.getStats().get(CardSpec.INTELLIGENCE);
                 Integer intelligenceOfAttackerCard = attackerCard.getStats().get(CardSpec.INTELLIGENCE);
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
-                System.out.println(opponent.getName() + "\nOpponent Card: \n");
-                opponentCard.displayStats();
+                TerminalManager.clearScreen();
+
+                System.out.println("\n" + opponent.getName() + " ROUND! \n");
+//                opponentCard.displayStats();
+                DataHandler.printTableWithSpecifiedCard(opponentCard);
+                opponent.displayPlayerStatistics();
 
                 if (attackerBet > 0) {
                     opponentBet = opponent.bet(attackerBet);
@@ -106,9 +118,11 @@ public class PlayerHuman extends Player {
                     }
                 }
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+                TerminalManager.clearScreen();
+
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
                 pot = attackerBet + opponentBet;
 
@@ -125,12 +139,16 @@ public class PlayerHuman extends Player {
                 Integer cunningOfOpponentCard = opponentCard.getStats().get(CardSpec.CUNNING);
                 Integer cunningOfAttackerCard = attackerCard.getStats().get(CardSpec.CUNNING);
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
-                System.out.println(opponent.getName() + "\nOpponent Card: \n");
-                opponentCard.displayStats();
+                TerminalManager.clearScreen();
+
+                System.out.println("\n" + opponent.getName() + " ROUND! \n");
+//                opponentCard.displayStats();
+                DataHandler.printTableWithSpecifiedCard(opponentCard);
+                opponent.displayPlayerStatistics();
 
                 if (attackerBet > 0) {
                     opponentBet = opponent.bet(attackerBet);
@@ -140,9 +158,12 @@ public class PlayerHuman extends Player {
                     }
                 }
 
-                for (int i = 0; i < 30; i++) {
-                    System.out.println();
-                }
+                TerminalManager.clearScreen();
+
+
+//                for (int i = 0; i < 30; i++) {
+//                    System.out.println();
+//                }
 
                 pot = attackerBet + opponentBet;
 
@@ -162,9 +183,10 @@ public class PlayerHuman extends Player {
                 for (int i = 0; i < 30; i++) {
                     System.out.println();
                 }
-
-                System.out.println(opponent.getName() + "\nOpponent Card: \n");
-                opponentCard.displayStats();
+                System.out.println("\n" + opponent.getName() + " ROUND! \n");
+//                opponentCard.displayStats();
+                DataHandler.printTableWithSpecifiedCard(opponentCard);
+                opponent.displayPlayerStatistics();
 
                 if (attackerBet > 0) {
                     opponentBet = opponent.bet(attackerBet);
@@ -188,15 +210,31 @@ public class PlayerHuman extends Player {
                 whoWin = knowledgeComparator.compare(attackerCard, opponentCard);
 
                 checkWhoWon(whoWin, pot, opponent);
+
                 break;
             default:
                 System.out.println("Wrong choice ");
         }
+
+        updateHealth(whoWin, attackerCard, opponentCard, opponent);
         // sumarize round
         System.out.println();
         System.out.println();
-        System.out.println("Your coins = " + this.getCoins());
-        System.out.println("Opponent coins = " + opponent.getCoins());
+
+//        System.out.println(this.getName() + " Your health = " + this.getHealth());
+//        System.out.println("Your coins = " + this.getCoins());
+//
+//        System.out.println(opponent.getName() + " Your health = " + opponent.getHealth());
+//        System.out.println("Opponent coins = " + opponent.getCoins());
+
+        System.out.println(this.getName() + " statistics");
+        this.displayPlayerStatistics();
+
+        System.out.println(opponent.getName() + " statistics");
+        opponent.displayPlayerStatistics();
+
+        TerminalManager.pressAnyKeyToContinue();
+
     }
 
     public void checkWhoWon(int whoWin, int pot, Player opponent) {
@@ -204,6 +242,7 @@ public class PlayerHuman extends Player {
             System.out.println("Attacker " + this.getName() + " has higher attribute");
             this.addCoins(pot);
             System.out.println("Attacker " + this.getName() + " got " + pot/2 + " coins");
+
         } else if (whoWin == 0) {
             // TODO: bets and cards move to another round
 
@@ -216,6 +255,37 @@ public class PlayerHuman extends Player {
             System.out.println("Opponent " + opponent.getName() + " got " + pot/2 + " coins");
         } else {
             System.out.println("else");
+        }
+    }
+
+    public void updateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
+        if (whowin == 1) {
+            this.getDeck().getCardList().add(cardOpponent);
+
+            for (int i = 0; i < opponent.getDeck().getCardList().size(); i++) {
+                Card card = opponent.getDeck().getCardList().get(i);
+                if (card.equals(cardOpponent)) {
+                    opponent.getDeck().getCardList().remove(card);
+                }
+            }
+            this.setHealth();
+            opponent.setHealth();
+//            this.subtractHealth(1);
+
+        } else if (whowin == 0) {
+            // TODO:
+        } else if (whowin == -1) {
+            opponent.getDeck().getCardList().add(cardAttacker);
+
+            for (int i = 0; i < this.getDeck().getCardList().size(); i++) {
+                Card card = this.getDeck().getCardList().get(i);
+                if (card.equals(cardAttacker)) {
+                    this.getDeck().getCardList().remove(card);
+                }
+            }
+            this.setHealth();
+            opponent.setHealth();
+//            opponent.subtractHealth(1);
         }
     }
 
