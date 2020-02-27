@@ -27,6 +27,9 @@ public class PlayerHuman extends Player {
         Card attackerCard = attackerDeck.getRandomCard();
         Card opponentCard = opponentDeck.getRandomCard();
 
+        this.removeCard(attackerCard);
+        opponent.removeCard(opponentCard);
+
         // Attacker
         System.out.println("\n" + this.getName() + " ROUND! \n");
 //        attackerCard.displayStats();

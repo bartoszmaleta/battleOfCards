@@ -158,6 +158,14 @@ public abstract class Player {
         return level;
     }
 
+    public void removeCard(Card card) {
+        for (int i = 0; i < this.getDeck().getCardList().size(); i++) {
+            if (this.getDeck().getCardList().get(i).equals(card)) {
+                this.getDeck().getCardList().remove(card);
+            }
+        }
+    }
+
     public int getCoins() {
         return coins;
     }
@@ -281,7 +289,7 @@ public abstract class Player {
             opponent.potCards.add(opponentCard);
             opponent.getDeck().getCardList().remove(attackerCard);
         }
-        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
 
         return whoWin;
     }
