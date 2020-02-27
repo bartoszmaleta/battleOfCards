@@ -82,26 +82,26 @@ public class PlayerHuman extends Player {
         for (int i = 0; i < 5; i++) {
             System.out.println();
         }
-        System.out.println("\nafter fight process");
-        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-
-        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
-        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
-        System.out.println("opponent health = " + opponent.getHealth());
+//        System.out.println("\nafter fight process");
+//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+//
+//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
+//        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
+//        System.out.println("opponent health = " + opponent.getHealth());
 
         this.getDeck().getCardList().remove(attackerCard);
         opponent.getDeck().getCardList().remove(opponentCard);
 
-        System.out.println("\nafter first remove");
-        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-
-        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
-        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
-        System.out.println("opponent health = " + opponent.getHealth());
+//        System.out.println("\nafter first remove");
+//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+//
+//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
+//        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
+//        System.out.println("opponent health = " + opponent.getHealth());
 
 
         System.out.println("whoWin = " +  whoWin);
@@ -151,12 +151,12 @@ public class PlayerHuman extends Player {
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
 
-        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-        System.out.println(opponent.getName() + "opponent deck: \n" + opponent.getDeck().getCardList());
-        System.out.println(opponent.getName() + "opponent deck size: " + opponent.getDeck().getCardList().size());
-        System.out.println(opponent.getName() + "opponent health = " + opponent.getHealth());
+//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+//        System.out.println(opponent.getName() + "opponent deck: \n" + opponent.getDeck().getCardList());
+//        System.out.println(opponent.getName() + "opponent deck size: " + opponent.getDeck().getCardList().size());
+//        System.out.println(opponent.getName() + "opponent health = " + opponent.getHealth());
 
         TerminalManager.pressAnyKeyToContinue();
 
