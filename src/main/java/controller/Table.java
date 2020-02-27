@@ -27,6 +27,7 @@ public class Table {
     }
 
     private void playGame(int numberOfPlayers) throws RandomizeDeckException, FileNotFoundException {
+        System.out.println("playGame()");
         if (numberOfPlayers > 1) {
             System.out.println("What is the name of the Player 1");
             String nameOfPlayer1 = scanner.nextLine();
@@ -56,8 +57,11 @@ public class Table {
 
     private void playPvAi(Player player1, Player playerAi) throws FileNotFoundException {
         while (isPlayerAlive(player1) || isPlayerAlive(playerAi)) {
-            player1.attack(player2);
-            player2.attack(player1);
+            System.out.println("playPvAi");
+
+                // TODO: playPvAi
+//            player1.attack(player2);
+//            player2.attack(player1);
         }
     }
 

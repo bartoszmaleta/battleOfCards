@@ -15,8 +15,6 @@ public class Game {
 
 
     public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
-//        player1 = new PlayerHuman("Andrzej");
-//        player2 = new PlayerHuman("Stefan");
 //      TODO:
         System.out.println("optionPVP");
         table = new Table(2);
@@ -24,9 +22,8 @@ public class Game {
     }
 
     public void optionPvAi() throws RandomizeDeckException, FileNotFoundException {
-//        player1 = new PlayerHuman("Andrzej");
-//        ai = new PlayerAI();
 //      TODO:
+        System.out.println("optionPvAi");
         table = new Table(1);
     }
 
