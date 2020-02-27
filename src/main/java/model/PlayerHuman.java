@@ -14,11 +14,6 @@ public class PlayerHuman extends Player {
         super(name, "\uD83E\uDD20");
     }
 
-    // parseWithEnums()
-//    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
-//        super("DefaultName", "\uD83E\uDD20");
-//    }
-
     @Override
     public void displayPlayerStatistics() {
         super.displayPlayerStatistics();
@@ -37,74 +32,47 @@ public class PlayerHuman extends Player {
 
         // Attacker
         System.out.println("\n" + this.getName() + " ROUND! \n");
-//        attackerCard.displayStats();
         DataHandler.printTableWithSpecifiedCard(attackerCard);
         this.displayPlayerStatistics();
 
         int attackerBet = 0;
+        int opponentBet = 0;
+        int pot = 0;
+        int whoWin = -10; // value does not matter, just to initialize!
 
         if (opponent.getCoins() > 0) {
             attackerBet = this.bet(0, opponent);
         }
 
         System.out.println("\nWhich statistic You want to use?\nPress");
-        System.out.println("(s) - STRENGTH");
-        System.out.println("(k) - KNOWLEDGE");
-        System.out.println("(i) - INTELLIGENCE");
-        System.out.println("(c) - CUNNING");
+        System.out.println("(s) - STRENGTH\n(k) - KNOWLEDGE\n(i) - INTELLIGENCE\n(c) - CUNNING\n");
+
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = scanner.nextLine();
-
-        int opponentBet = 0;
-
-        int pot = 0;
-
-        int whoWin = 0;
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
                 whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "i":
-                intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "c":
-                cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "k":
-                knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             default:
                 System.out.println("Wrong choice ");
         }
 
-
         for (int i = 0; i < 5; i++) {
             System.out.println();
         }
-//        System.out.println("\nafter fight process");
-//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-//
-//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
-//        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
-//        System.out.println("opponent health = " + opponent.getHealth());
 
         this.getDeck().getCardList().remove(attackerCard);
         opponent.getDeck().getCardList().remove(opponentCard);
-
-//        System.out.println("\nafter first remove");
-//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-//
-//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
-//        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
-//        System.out.println("opponent health = " + opponent.getHealth());
-
-
-        System.out.println("whoWin = " +  whoWin);
 
         if (whoWin == 1 || whoWin == -1) {
             this.getPotCards().add(attackerCard);
@@ -112,35 +80,21 @@ public class PlayerHuman extends Player {
             opponent.getPotCards().add(attackerCard);
             opponent.getPotCards().add(opponentCard);
 
-            System.out.println("qweqweqweqwe");
             calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
             this.getPotCards().clear();
             opponent.getPotCards().clear();
+
         } else if (whoWin == 0){
-            System.out.println("whoWin = 0");
             calculateHealth(whoWin, attackerCard, opponentCard, opponent);
 
             this.getPotCards().add(attackerCard);
             this.getPotCards().add(opponentCard);
+
             opponent.getPotCards().add(attackerCard);
             opponent.getPotCards().add(opponentCard);
         }
-//        this.calculateHealth(whoWin, attackerCard, opponentCard, opponent);
-//        System.out.println("attacker health = " + this.getHealth());
-//        System.out.println("opponent health = " + opponent.getHealth());
 
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
-
-
-//        this.removeCard(attackerCard);
-//        opponent.removeCard(opponentCard);
-//        System.out.println("after second remove");
-//        System.out.println("attacker deck: \n" + this.getDeck().getCardList());
-//        System.out.println("attacker deck: \n" + this.getDeck().getCardList().size());
-//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
-//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList().size());
-
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
         // sumarize round
         System.out.println();
         System.out.println();
@@ -151,15 +105,7 @@ public class PlayerHuman extends Player {
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
 
-//        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
-//        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
-//        System.out.println(this.getName() + "attacker health = " + this.getHealth());
-//        System.out.println(opponent.getName() + "opponent deck: \n" + opponent.getDeck().getCardList());
-//        System.out.println(opponent.getName() + "opponent deck size: " + opponent.getDeck().getCardList().size());
-//        System.out.println(opponent.getName() + "opponent health = " + opponent.getHealth());
-
         TerminalManager.pressAnyKeyToContinue();
-
     }
 
 

@@ -109,15 +109,15 @@ public class PlayerAI extends Player {
 
             switch (markerOfStatToFight.toLowerCase()) {
                 case "s":
-                    strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 case "i":
-                    intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                     break;
                 case "c":
-                    cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                     break;
                 case "k":
-                    knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                     break;
                 default:
                     System.out.println("Wrong choice ");
@@ -128,11 +128,36 @@ public class PlayerAI extends Player {
                 System.out.println();
             }
 
-            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+//            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            // inserted here
+            this.getDeck().getCardList().remove(attackerCard);
+            opponent.getDeck().getCardList().remove(opponentCard);
+
+            if (whoWin == 1 || whoWin == -1) {
+                this.getPotCards().add(attackerCard);
+                this.getPotCards().add(opponentCard);
+                opponent.getPotCards().add(attackerCard);
+                opponent.getPotCards().add(opponentCard);
+
+                calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+                this.getPotCards().clear();
+                opponent.getPotCards().clear();
+
+            } else if (whoWin == 0) {
+                calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+                this.getPotCards().add(attackerCard);
+                this.getPotCards().add(opponentCard);
+
+                opponent.getPotCards().add(attackerCard);
+                opponent.getPotCards().add(opponentCard);
+            }
+            // ------------------
 
             System.out.println();
             System.out.println();
-
 
             System.out.println(this.getName() + " statistics");
             this.displayPlayerStatistics();

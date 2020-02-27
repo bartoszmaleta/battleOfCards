@@ -196,7 +196,7 @@ public abstract class Player {
 
     public void calculateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
         if (whowin == 1) {
-            System.out.println("\ncalculatingHealth");
+            System.out.println("\nCalculatingHealth");
             for (int i = 0; i < this.potCards.size(); i++) {
                 this.getDeck().getCardList().add(this.potCards.get(i));
             }
@@ -206,13 +206,13 @@ public abstract class Player {
 
         } else if (whowin == 0) {
             // TODO:
-            System.out.println("\ncalculatingHealth");
+            System.out.println("\nCalculatingHealth");
 
             this.updateHealth();
             opponent.updateHealth();
 
         } else if (whowin == -1) {
-            System.out.println("\ncalculatingHealth");
+            System.out.println("\nCalculatingHealth");
 
             for (int i = 0; i < opponent.potCards.size(); i++) {
                 opponent.getDeck().getCardList().add(opponent.potCards.get(i));
@@ -246,8 +246,8 @@ public abstract class Player {
 
         pot = attackerBet + opponentBet;
 
-        System.out.println("Attacker Strength = " + strengthOfAttackerCard);
-        System.out.println("Opponent Strength = " + strengthOfOpponentCard);
+        System.out.println(this.getName() + " strength = " + strengthOfAttackerCard);
+        System.out.println(opponent.getName() + " strength = " + strengthOfOpponentCard);
 
         StrengthComparator strengthComparator = new StrengthComparator();
 
@@ -258,7 +258,7 @@ public abstract class Player {
         return whoWin;
     }
 
-    public void intFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int intFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
         Integer intelligenceOfOpponentCard = opponentCard.getStats().get(CardSpec.INTELLIGENCE);
         Integer intelligenceOfAttackerCard = attackerCard.getStats().get(CardSpec.INTELLIGENCE);
 
@@ -281,21 +281,18 @@ public abstract class Player {
 
         pot = attackerBet + opponentBet;
 
-        System.out.println("Attacker Intelligence = " + intelligenceOfAttackerCard);
-        System.out.println("Opponent Intelligence = " + intelligenceOfOpponentCard);
+        System.out.println(this.getName() + " intelligence = " + intelligenceOfAttackerCard);
+        System.out.println(opponent.getName() + " intelligence = " + intelligenceOfOpponentCard);
 
         IntelligenceComparator intelligenceComparator = new IntelligenceComparator();
 
         whoWin = intelligenceComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
-        // TODO
-
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
-
+        return whoWin;
     }
 
-    public void cunFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int cunFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
         Integer cunningOfOpponentCard = opponentCard.getStats().get(CardSpec.CUNNING);
         Integer cunningOfAttackerCard = attackerCard.getStats().get(CardSpec.CUNNING);
 
@@ -318,20 +315,18 @@ public abstract class Player {
 
         pot = attackerBet + opponentBet;
 
-        System.out.println("Attacker Cunning = " + cunningOfAttackerCard);
-        System.out.println("Opponent Cunning = " + cunningOfOpponentCard);
+        System.out.println(this.getName() + " cunning = " + cunningOfAttackerCard);
+        System.out.println(opponent.getName() + " cunning = " + cunningOfOpponentCard);
 
         CunningComparator cunningComparator = new CunningComparator();
 
         whoWin = cunningComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
-        // TODO
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
-
+        return whoWin;
     }
 
-    public void knoFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int knoFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
         Integer knowledgeOfOpponentCard = opponentCard.getStats().get(CardSpec.KNOWLEDGE);
         Integer knowledgeOfAttackerCard = attackerCard.getStats().get(CardSpec.KNOWLEDGE);
 
@@ -357,17 +352,15 @@ public abstract class Player {
 
         pot = attackerBet + opponentBet;
 
-        System.out.println("Attacker Knowledge = " + knowledgeOfAttackerCard);
-        System.out.println("Opponent Knowledge = " + knowledgeOfOpponentCard);
+        System.out.println(this.getName() + " knowledge = " + knowledgeOfAttackerCard);
+        System.out.println(opponent.getName() + " knowledge = " + knowledgeOfOpponentCard);
 
         KnowledgeComparator knowledgeComparator = new KnowledgeComparator();
 
         whoWin = knowledgeComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
-        // TODO
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
-
+        return whoWin;
     }
 
 }
