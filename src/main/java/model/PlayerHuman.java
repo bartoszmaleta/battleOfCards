@@ -166,6 +166,9 @@ public class PlayerHuman extends Player {
                 case "n": {
                     return 0;
                 }
+                default: {
+                    System.out.println("Wrong choice! Try again!");
+                }
             }
         }
         return 0;
