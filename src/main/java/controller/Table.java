@@ -1,18 +1,21 @@
 package controller;
 
 import exception.RandomizeDeckException;
+import model.Card;
 import model.Player;
 import model.PlayerAI;
 import model.PlayerHuman;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Table {
-    Scanner scanner = new Scanner(System.in);
-    Player player1;
-    Player player2;
-    Player playerAi;
+    private Scanner scanner = new Scanner(System.in);
+    private Player player1;
+    private Player player2;
+    private Player playerAi;
+//    private int coinDeposit = 0;
+//    private List<Card> cardsDeposit = new ArrayList<>();
+//    private int winner = 0;     // 1 - player1, 2 - player2, 0 - draw
 
 
     public Table(int numberOfPlayers) throws RandomizeDeckException, FileNotFoundException {
@@ -73,19 +76,9 @@ public class Table {
         while (isPlayerAlive(player1) || isPlayerAlive(player2)) {
             System.out.println("playPvP while loop");
 
-            if (player1.getPotCards().size() > 0) {
-                player1.attack(player2);
-                player2.attack(player1);
-            } else {
-                player1.setEmptyPotCards();
-                player2.setEmptyPotCards();
+            player1.attack(player2);
+            player2.attack(player1);
 
-                player1.attack(player2);
-                player2.attack(player1);
-            }
-
-//            player1.attack(player2);
-//            player2.attack(player1);
         }
     }
 

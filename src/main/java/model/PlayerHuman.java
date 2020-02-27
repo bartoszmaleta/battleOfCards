@@ -20,15 +20,20 @@ public class PlayerHuman extends Player {
 //    }
 
     @Override
+    public void displayPlayerStatistics() {
+        super.displayPlayerStatistics();
+    }
+
+    @Override
     public void attack(Player opponent) throws FileNotFoundException {
+
+        System.out.println("potCards : \n" + this.getPotCards());
+
         Deck attackerDeck = this.getDeck();
         Deck opponentDeck = opponent.getDeck();
 
         Card attackerCard = attackerDeck.getRandomCard();
         Card opponentCard = opponentDeck.getRandomCard();
-
-        this.removeCard(attackerCard);
-        opponent.removeCard(opponentCard);
 
         // Attacker
         System.out.println("\n" + this.getName() + " ROUND! \n");
@@ -54,10 +59,6 @@ public class PlayerHuman extends Player {
 
         int pot = 0;
 
-//        if (this.getPotCards().size() == 0) {
-
-//        }
-
         int whoWin = 0;
 
         switch (markerOfStatToFight.toLowerCase()) {
@@ -77,19 +78,72 @@ public class PlayerHuman extends Player {
                 System.out.println("Wrong choice ");
         }
 
+
         for (int i = 0; i < 5; i++) {
             System.out.println();
         }
+        System.out.println("\nafter fight process");
+        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+
+        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
+        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
+        System.out.println("opponent health = " + opponent.getHealth());
+
+        this.getDeck().getCardList().remove(attackerCard);
+        opponent.getDeck().getCardList().remove(opponentCard);
+
+        System.out.println("\nafter first remove");
+        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+
+        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
+        System.out.println("opponent deck size: " + opponent.getDeck().getCardList().size());
+        System.out.println("opponent health = " + opponent.getHealth());
+
+
+        System.out.println("whoWin = " +  whoWin);
+
+        if (whoWin == 1 || whoWin == -1) {
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+
+            System.out.println("qweqweqweqwe");
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+            this.getPotCards().clear();
+            opponent.getPotCards().clear();
+        } else if (whoWin == 0){
+            System.out.println("whoWin = 0");
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+        }
+//        this.calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+//        System.out.println("attacker health = " + this.getHealth());
+//        System.out.println("opponent health = " + opponent.getHealth());
+
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+
+//        this.removeCard(attackerCard);
+//        opponent.removeCard(opponentCard);
+//        System.out.println("after second remove");
+//        System.out.println("attacker deck: \n" + this.getDeck().getCardList());
+//        System.out.println("attacker deck: \n" + this.getDeck().getCardList().size());
+//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList());
+//        System.out.println("opponent deck: \n" + opponent.getDeck().getCardList().size());
 
 //        updateHealth(whoWin, attackerCard, opponentCard, opponent);
         // sumarize round
         System.out.println();
         System.out.println();
-
-        if (whoWin == 1 || whoWin == -1) {
-            this.getPotCards().clear();
-            opponent.getPotCards().clear();
-        }
 
         System.out.println(this.getName() + " statistics");
         this.displayPlayerStatistics();
@@ -97,17 +151,18 @@ public class PlayerHuman extends Player {
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
 
-        System.out.println(this.getDeck().getCardList());
-        System.out.println(opponent.getDeck().getCardList());
+        System.out.println(this.getName() + "attacker deck: \n" + this.getDeck().getCardList());
+        System.out.println(this.getName() + "attacker deck size: " + this.getDeck().getCardList().size());
+        System.out.println(this.getName() + "attacker health = " + this.getHealth());
+        System.out.println(opponent.getName() + "opponent deck: \n" + opponent.getDeck().getCardList());
+        System.out.println(opponent.getName() + "opponent deck size: " + opponent.getDeck().getCardList().size());
+        System.out.println(opponent.getName() + "opponent health = " + opponent.getHealth());
 
         TerminalManager.pressAnyKeyToContinue();
 
     }
 
-    @Override
-    public void displayPlayerStatistics() {
-        super.displayPlayerStatistics();
-    }
+
 
     @Override
     public int bet(int currentBet, Player opponent) {

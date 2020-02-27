@@ -66,7 +66,7 @@ public class PlayerAI extends Player {
                 System.out.println();
             }
 
-            updateHealth(whoWin, attackerCard, opponentCard, opponent);
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
 
             System.out.println();
             System.out.println();
@@ -128,7 +128,7 @@ public class PlayerAI extends Player {
                 System.out.println();
             }
 
-            updateHealth(whoWin, attackerCard, opponentCard, opponent);
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
 
             System.out.println();
             System.out.println();

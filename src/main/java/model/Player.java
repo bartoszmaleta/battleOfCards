@@ -1,13 +1,11 @@
 package model;
 
-import com.jakewharton.fliptables.FlipTable;
 import com.jakewharton.fliptables.FlipTableConverters;
 import comparator.CunningComparator;
 import comparator.IntelligenceComparator;
 import comparator.KnowledgeComparator;
 import comparator.StrengthComparator;
 import exception.RandomizeDeckException;
-import parser.DeckDaoXML;
 import repository.Deck;
 import services.DataHandler;
 import services.TerminalManager;
@@ -44,82 +42,6 @@ public abstract class Player {
 
     public abstract int bet(int currentBet, Player player);
 
-    public void checkWhoWon(int whoWin, int pot, Player opponent) {
-        if (whoWin == 1) {
-            System.out.println("Attacker " + this.getName() + " has higher attribute");
-            this.addCoins(pot);
-            System.out.println("Attacker " + this.getName() + " got " + pot / 2 + " coins");
-
-        } else if (whoWin == 0) {
-            // TODO: bets and cards move to another round
-
-            System.out.println("Draw");
-//            addCoins(pot / 2);
-//            opponent.addCoins(pot / 2);
-
-//            this.potCards.add()
-
-        } else if (whoWin == -1) {
-            System.out.println("Opponent " + opponent.getName() + " has higher attribute");
-            opponent.addCoins(pot);
-            System.out.println("Opponent " + opponent.getName() + " got " + pot / 2 + " coins");
-        } else {
-            System.out.println("else");
-        }
-    }
-
-    public void updateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
-        if (whowin == 1) {
-
-            // Adding loser card to winner deck
-            if (this.potCards.size() > 0) {
-                for (int i = 0; i < potCards.size(); i++) {
-                    this.getDeck().getCardList().add(potCards.get(i));
-                }
-            } else {
-                this.getDeck().getCardList().add(cardOpponent);
-            }
-
-            // removing loser card from loser deck
-            for (int i = 0; i < opponent.getDeck().getCardList().size(); i++) {
-                Card card = opponent.getDeck().getCardList().get(i);
-                if (card.equals(cardOpponent)) {
-                    opponent.getDeck().getCardList().remove(card);
-                }
-            }
-
-            // updating health of players
-            this.setHealth();
-            opponent.setHealth();
-
-        } else if (whowin == 0) {
-            // TODO:
-
-        } else if (whowin == -1) {
-
-            // Adding loser card to winner deck
-            if (opponent.potCards.size() > 0) {
-                for (int i = 0; i < opponent.potCards.size(); i++) {
-                    opponent.getDeck().getCardList().add(opponent.potCards.get(i));
-                }
-            } else {
-                opponent.getDeck().getCardList().add(cardAttacker);
-            }
-
-            // removing loser card from loser deck
-            for (int i = 0; i < this.getDeck().getCardList().size(); i++) {
-                Card card = this.getDeck().getCardList().get(i);
-                if (card.equals(cardAttacker)) {
-                    this.getDeck().getCardList().remove(card);
-                }
-            }
-
-            // updating health of players
-            this.setHealth();
-            opponent.setHealth();
-        }
-    }
-
 
     public String getName() {
         return name;
@@ -129,9 +51,11 @@ public abstract class Player {
         return apparel;
     }
 
-    public void setHealth() {
-        int health = this.deck.getCardList().size();
-        this.health = health;
+    public void updateHealth() {
+//        int health = this.deck.getCardList().size();
+//        this.health = health;
+
+        this.health = this.deck.getCardList().size();
     }
 
     public Deck getDeck() {
@@ -172,7 +96,7 @@ public abstract class Player {
 
     public int setStartHealth() {
 //      TODO: health should depends on length of remaining Deck
-        int health = deck.getCardList().size();
+        int health = this.deck.getCardList().size();
         return health;
     }
 
@@ -217,20 +141,6 @@ public abstract class Player {
         this.coins -= amount;
     }
 
-    public void displayPlayerStatistics() {
-//        TODO:
-        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "Cards in pot"};
-        Object[][] data = {
-                {this.health, this.coins, this.experience, this.level, this.potCards}
-        };
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
-    }
-
-    public String toString() {
-//        TODO:
-        return null;
-    }
-
     public void calculateLevel() {
         int exp = getExperience();
         if (exp < 100) {
@@ -244,6 +154,72 @@ public abstract class Player {
         }
         if (exp >= 400) {
             this.level = 4;
+        }
+    }
+
+    public String toString() {
+//        TODO:
+        return null;
+    }
+
+    public void displayPlayerStatistics() {
+//        TODO:
+        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "Cards in pot"};
+        Object[][] data = {
+                {this.health, this.coins, this.experience, this.level, this.potCards}
+        };
+        System.out.println(FlipTableConverters.fromObjects(headers, data));
+    }
+
+
+    public void checkWhoWon(int whoWin, int pot, Player opponent) {
+        if (whoWin == 1) {
+            System.out.println("Attacker " + this.getName() + " has higher attribute");
+            this.addCoins(pot);
+            System.out.println("Attacker " + this.getName() + " got " + pot / 2 + " coins");
+
+        } else if (whoWin == 0) {
+            // TODO: bets and cards move to another round
+
+            System.out.println("Draw");
+//            addCoins(pot / 2);
+//            opponent.addCoins(pot / 2);
+
+        } else if (whoWin == -1) {
+            System.out.println("Opponent " + opponent.getName() + " has higher attribute");
+            opponent.addCoins(pot);
+            System.out.println("Opponent " + opponent.getName() + " got " + pot / 2 + " coins");
+        } else {
+            System.out.println("else");
+        }
+    }
+
+    public void calculateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
+        if (whowin == 1) {
+            System.out.println("\ncalculatingHealth");
+            for (int i = 0; i < this.potCards.size(); i++) {
+                this.getDeck().getCardList().add(this.potCards.get(i));
+            }
+
+            this.updateHealth();
+            opponent.updateHealth();
+
+        } else if (whowin == 0) {
+            // TODO:
+            System.out.println("\ncalculatingHealth");
+
+            this.updateHealth();
+            opponent.updateHealth();
+
+        } else if (whowin == -1) {
+            System.out.println("\ncalculatingHealth");
+
+            for (int i = 0; i < opponent.potCards.size(); i++) {
+                opponent.getDeck().getCardList().add(opponent.potCards.get(i));
+            }
+
+            this.updateHealth();
+            opponent.updateHealth();
         }
     }
 
@@ -278,18 +254,6 @@ public abstract class Player {
         whoWin = strengthComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
-
-//         to another method
-        if (whoWin == 0) {
-            this.potCards.add(attackerCard);
-            this.potCards.add(opponentCard);
-            this.getDeck().getCardList().remove(attackerCard);
-
-            opponent.potCards.add(attackerCard);
-            opponent.potCards.add(opponentCard);
-            opponent.getDeck().getCardList().remove(attackerCard);
-        }
-//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
 
         return whoWin;
     }
@@ -363,7 +327,6 @@ public abstract class Player {
 
         checkWhoWon(whoWin, pot, opponent);
         // TODO
-
 //        updateHealth(whoWin, attackerCard, opponentCard, opponent);
 
     }
