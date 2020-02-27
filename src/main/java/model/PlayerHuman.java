@@ -131,7 +131,6 @@ public class PlayerHuman extends Player {
                     boolean isDone = false;
                     int betAmount = 0;
                     while (!isDone) {
-
                         System.out.println("Choose amount of coins you want to bet:");
                         try {
                             betAmount = s.nextInt();
