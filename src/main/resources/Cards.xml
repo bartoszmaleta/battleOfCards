@@ -593,7 +593,7 @@
             <Stat id="Cunning">20</Stat>
         </Stats>
     </Card>
-        <Card name="       Coding Smurf       ">
+    <Card name="         Coding Smurf         ">
         <Stats>
             <Stat id="Strength">01</Stat>
             <Stat id="Knowledge">99</Stat>
