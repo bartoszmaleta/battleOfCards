@@ -43,10 +43,11 @@ public class Table {
             String nameOfPlayer1 = scanner.nextLine();
             player1 = new PlayerHuman(nameOfPlayer1);
 
+            String aiMode = "";
             boolean isGoodModeChoice = true;
             while (isGoodModeChoice) {
                 System.out.println("Choose ai level?\n(e) - easy\n(h) - hard");
-                String aiMode = scanner.nextLine().toLowerCase();
+                aiMode = scanner.nextLine().toLowerCase();
                 switch (aiMode) {
                     case "e":
                         aiMode = "easy";
@@ -61,7 +62,7 @@ public class Table {
                 }
             }
 
-            playerAi = new PlayerAI("easy");
+            playerAi = new PlayerAI(aiMode);
             playPvAi(player1, playerAi);
         }
     }
@@ -79,8 +80,8 @@ public class Table {
             System.out.println("playPvAi");
 
                 // TODO: playPvAi
-//            player1.attack(player2);
-//            player2.attack(player1);
+            player1.attack(playerAi);
+            playerAi.attack(player1);
         }
     }
 
