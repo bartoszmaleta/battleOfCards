@@ -216,6 +216,11 @@ public class PlayerHuman extends Player {
                 System.out.println("Wrong choice ");
         }
 
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+        }
+
         updateHealth(whoWin, attackerCard, opponentCard, opponent);
         // sumarize round
         System.out.println();
