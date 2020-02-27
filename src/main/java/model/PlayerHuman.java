@@ -7,6 +7,7 @@ import services.TerminalManager;
 
 import java.io.FileNotFoundException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PlayerHuman extends Player {
@@ -105,7 +106,6 @@ public class PlayerHuman extends Player {
                 case "y": {
                     subtractCoins(currentBet);
                     return currentBet;
-
                 }
                 case "n": {
                     return 0;
@@ -128,8 +128,24 @@ public class PlayerHuman extends Player {
             System.out.println("Do you want to place bet? y/n");
             switch (s.nextLine()) {
                 case "y": {
-                    System.out.println("Choose amount of coins you want to bet:");
-                    int betAmount = s.nextInt();
+                    boolean isDone = false;
+                    int betAmount = 0;
+                    while (!isDone) {
+
+                        System.out.println("Choose amount of coins you want to bet:");
+                        try {
+                            betAmount = s.nextInt();
+                            if (betAmount > 0) {
+                                isDone = true;
+                            }
+                        } catch (InputMismatchException ex) {
+                            for (int i = 0; i < 30; i++) {
+                                System.out.println();
+                            }
+                            System.out.println("Wrong operation\n");
+                            s.nextLine();
+                        }
+                    }
                     if (betAmount > coinsOfBettingPlayer) {
                         for (int i = 0; i < 30; i++) {
                             System.out.println();
