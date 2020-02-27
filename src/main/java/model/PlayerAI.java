@@ -19,94 +19,30 @@ public class PlayerAI extends Player {
 
     @Override
     public void attack(Player opponent) throws FileNotFoundException {
+        Deck attackerDeck = this.getDeck();
+        Deck opponentDeck = opponent.getDeck();
+
+        Card attackerCard = attackerDeck.getRandomCard();
+        Card opponentCard = opponentDeck.getRandomCard();
+
+        // Attacker
+        System.out.println("\n" + this.getName() + " ROUND! \n");
+
+        DataHandler.printTableWithSpecifiedCard(attackerCard);
+        this.displayPlayerStatistics();
+
+        int attackerBet = 0;
+        int opponentBet = 0;
+        int pot = 0;
+        int whoWin = 0;
+
+        if (opponent.getCoins() > 0) {
+            attackerBet = this.bet(0, opponent);
+        }
+
         if (aiMode.equals("easy")) {
-            Deck attackerDeck = this.getDeck();
-            Deck opponentDeck = opponent.getDeck();
-
-            Card attackerCard = attackerDeck.getRandomCard();
-            Card opponentCard = opponentDeck.getRandomCard();
-
-            // Attacker
-            System.out.println("\n" + this.getName() + " ROUND! \n");
-
-            DataHandler.printTableWithSpecifiedCard(attackerCard);
-            this.displayPlayerStatistics();
-
-            int attackerBet = 0;
-
-            if (opponent.getCoins() > 0) {
-                attackerBet = this.bet(0, opponent);
-            }
 
             String markerOfStatToFight = easyChoice();
-
-            int opponentBet = 0;
-
-            int pot = 0;
-
-            int whoWin = 0;
-
-            switch (markerOfStatToFight.toLowerCase()) {
-                case "s":
-                    strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                case "i":
-                    intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                    break;
-                case "c":
-                    cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                    break;
-                case "k":
-                    knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                    break;
-                default:
-                    System.out.println("Wrong choice ");
-            }
-
-            for (int i = 0; i < 5; i++) {
-                System.out.println();
-            }
-
-            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
-
-            System.out.println();
-            System.out.println();
-
-
-            System.out.println(this.getName() + " statistics");
-            this.displayPlayerStatistics();
-
-            System.out.println(opponent.getName() + " statistics");
-            opponent.displayPlayerStatistics();
-
-            TerminalManager.pressAnyKeyToContinue();
-
-        } else if (aiMode.equals("hard")) {
-            Deck attackerDeck = this.getDeck();
-            Deck opponentDeck = opponent.getDeck();
-
-            Card attackerCard = attackerDeck.getRandomCard();
-            Card opponentCard = opponentDeck.getRandomCard();
-
-            // Attacker
-            System.out.println("\n" + this.getName() + " ROUND! \n");
-
-            DataHandler.printTableWithSpecifiedCard(attackerCard);
-            this.displayPlayerStatistics();
-
-            int attackerBet = 0;
-
-            if (opponent.getCoins() > 0) {
-                attackerBet = this.bet(0, opponent);
-            }
-
-            String markerOfStatToFight = hardChoice();
-
-            int opponentBet = 0;
-
-            int pot = 0;
-
-            int whoWin = 0;
-
             switch (markerOfStatToFight.toLowerCase()) {
                 case "s":
                     whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
@@ -123,50 +59,64 @@ public class PlayerAI extends Player {
                     System.out.println("Wrong choice ");
             }
 
+        } else if (aiMode.equals("hard")) {
 
-            for (int i = 0; i < 5; i++) {
-                System.out.println();
+            String markerOfStatToFight = hardChoice(attackerCard);
+            switch (markerOfStatToFight.toLowerCase()) {
+                case "s":
+                    whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                case "i":
+                    whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    break;
+                case "c":
+                    whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    break;
+                case "k":
+                    whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    break;
+                default:
+                    System.out.println("Wrong choice ");
             }
-
-//            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
-
-            // inserted here
-            this.getDeck().getCardList().remove(attackerCard);
-            opponent.getDeck().getCardList().remove(opponentCard);
-
-            if (whoWin == 1 || whoWin == -1) {
-                this.getPotCards().add(attackerCard);
-                this.getPotCards().add(opponentCard);
-                opponent.getPotCards().add(attackerCard);
-                opponent.getPotCards().add(opponentCard);
-
-                calculateHealth(whoWin, attackerCard, opponentCard, opponent);
-
-                this.getPotCards().clear();
-                opponent.getPotCards().clear();
-
-            } else if (whoWin == 0) {
-                calculateHealth(whoWin, attackerCard, opponentCard, opponent);
-
-                this.getPotCards().add(attackerCard);
-                this.getPotCards().add(opponentCard);
-
-                opponent.getPotCards().add(attackerCard);
-                opponent.getPotCards().add(opponentCard);
-            }
-            // ------------------
-
-            System.out.println();
-            System.out.println();
-
-            System.out.println(this.getName() + " statistics");
-            this.displayPlayerStatistics();
-
-            System.out.println(opponent.getName() + " statistics");
-            opponent.displayPlayerStatistics();
-
-            TerminalManager.pressAnyKeyToContinue();
         }
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+        }
+
+        this.getDeck().getCardList().remove(attackerCard);
+        opponent.getDeck().getCardList().remove(opponentCard);
+
+        if (whoWin == 1 || whoWin == -1) {
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            this.getPotCards().clear();
+            opponent.getPotCards().clear();
+
+        } else if (whoWin == 0) {
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+        }
+
+        System.out.println();
+        System.out.println();
+
+        System.out.println(this.getName() + " statistics");
+        this.displayPlayerStatistics();
+
+        System.out.println(opponent.getName() + " statistics");
+        opponent.displayPlayerStatistics();
+
+        TerminalManager.pressAnyKeyToContinue();
     }
 
 
@@ -192,9 +142,9 @@ public class PlayerAI extends Player {
         }
     }
 
-    public String hardChoice() {
-        Deck attackerDeck = this.getDeck();
-        Card attackerCard = attackerDeck.getRandomCard();
+    public String hardChoice(Card attackerCard) {
+//        Deck attackerDeck = this.getDeck();
+//        Card attackerCard = attackerDeck.getRandomCard();
         int maxStat = 0;
         for (Integer stat : attackerCard.getStats().values()) {
             if (maxStat < stat) {
