@@ -1,42 +1,66 @@
 package controller;
 
 import exception.RandomizeDeckException;
-import model.Player;
-import model.PlayerAI;
-import model.PlayerHuman;
+import services.TerminalManager;
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Game {
-    Player player1;
-    Player player2;
-    Player ai;
+    Table table;
 
-    public Game() throws RandomizeDeckException {
-
-
-
+    public Game() throws RandomizeDeckException, FileNotFoundException {
+        init();
     }
 
 
-    public void playPvP() throws RandomizeDeckException {
-        player1 = new PlayerHuman("Andrzej");
-        player2 = new PlayerHuman("Stefan");
+    public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
+//      TODO:
+        System.out.println("optionPVP");
+        table = new Table(2);
+
+    }
+
+    public void optionPvAi() throws RandomizeDeckException, FileNotFoundException {
+//      TODO:
+        System.out.println("optionPvAi");
+        table = new Table(1);
+    }
+
+    public void init2() {
 //      TODO:
 
     }
 
-    public void PvAI(String aiMode) throws RandomizeDeckException {
-        player1 = new PlayerHuman("Andrzej");
-        ai = new PlayerAI(aiMode);
-//      TODO:
+    public void init() throws RandomizeDeckException, FileNotFoundException {
+        boolean isRunning = true;
+        System.out.println("play()");
 
-    }
+        TerminalManager.displayWelcomeScreen();
+        // Menu
+        Scanner scanner = new Scanner(System.in);
 
-    public void init() {
-//      TODO:
+        while (isRunning) {
+            System.out.println("while (isRunning)");
 
-    }
+            TerminalManager.showMenu();
 
-    public void play() {
+            String chooseOption = scanner.nextLine();
 
+            switch (chooseOption) {
+                case "1":
+                    optionPvP();
+                    break;
+                case "2":
+                    optionPvAi();
+                    break;
+                case "7":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Wrong input");
+
+            }
+        }
     }
 }
