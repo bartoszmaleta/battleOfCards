@@ -29,9 +29,9 @@ public class TerminalManager {
         System.out.println("Bartosz Maleta");
         System.out.println("Szymon Niemiec");
         System.out.println("Przemysław Buszek\n\n\n");
-        emptyLinesThree();
+//        emptyLinesThree();
         pressAnyKeyToContinue();
-        clearScreen();
+//        clearScreen();
     }
 
     public static void clearScreen() {
@@ -47,5 +47,20 @@ public class TerminalManager {
         for (int i = 0; i < 30; i++) {
             System.out.println();
         }
+    }
+
+    public static void showMenu() {
+        System.out.println("\033[0;37;49mMenu");
+        System.out.println("Choose option");
+
+        System.out.println("1. Play PVP");
+        System.out.println("2. Play PvAi");
+        System.out.println("3. ");
+        System.out.println("4. ");
+        System.out.println("5. ");
+        System.out.println("6. ");
+        System.out.println("7. Exit program");
+
+        TerminalManager.emptyLinesThree();
     }
 }
