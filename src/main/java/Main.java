@@ -11,6 +11,12 @@ import java.io.FileNotFoundException;
 //       - allignment
 //       - experience dependency
 //       - level dependency
+//       - coins dependency
+//       - better newLines()
+//       - menu during game
+//       - attack() and bet() break into smaller methods
+//       - calculateHealth() move to one method = "update"
+//       - show name of Smurf on his card image
 
 public class Main {
     public static void main(String[] args) throws RandomizeDeckException, FileNotFoundException {

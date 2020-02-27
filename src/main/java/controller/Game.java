@@ -14,7 +14,6 @@ public class Game {
         init();
     }
 
-
     public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
         System.out.println("optionPVP");
         table = new Table(2);

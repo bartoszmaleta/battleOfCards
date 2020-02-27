@@ -39,16 +39,20 @@ public class MainForEnumsTesting {
 //        TerminalManager.pressAnyKeyToContinue();
 //        TerminalManager.clearScreen();
 //        System.out.println(FlipTable.of(headers, data));
-        String loader = "[";
-        for (int i = 0; i < 20; i++) {
-            System.out.println(loader);
-            loader += "=";
-            Thread.sleep(250);
-            TerminalManager.blankLines(100);
-            Thread.sleep(250);
-//            TerminalManager.clearScreen();
-        }
-        System.out.println(loader + "]");
+
+
+
+
+//        String loader = "[";
+//        for (int i = 0; i < 20; i++) {
+//            System.out.println(loader);
+//            loader += "=";
+//            Thread.sleep(250);
+//            TerminalManager.blankLines(100);
+//            Thread.sleep(250);
+////            TerminalManager.clearScreen();
+//        }
+//        System.out.println(loader + "]");
 
     }
 }

@@ -79,9 +79,9 @@ public class PlayerAI extends Player {
             }
         }
 
-        for (int i = 0; i < 5; i++) {
-            System.out.println();
-        }
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println();
+//        }
 
         this.getDeck().getCardList().remove(attackerCard);
         opponent.getDeck().getCardList().remove(opponentCard);

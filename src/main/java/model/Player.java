@@ -180,7 +180,6 @@ public abstract class Player {
 
         } else if (whoWin == 0) {
             // TODO: bets and cards move to another round
-
             System.out.println("Draw");
 //            addCoins(pot / 2);
 //            opponent.addCoins(pot / 2);
@@ -196,28 +195,20 @@ public abstract class Player {
 
     public void calculateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
         if (whowin == 1) {
-            System.out.println("\nCalculatingHealth");
             for (int i = 0; i < this.potCards.size(); i++) {
                 this.getDeck().getCardList().add(this.potCards.get(i));
             }
-
             this.updateHealth();
             opponent.updateHealth();
 
         } else if (whowin == 0) {
-            // TODO:
-            System.out.println("\nCalculatingHealth");
-
             this.updateHealth();
             opponent.updateHealth();
 
         } else if (whowin == -1) {
-            System.out.println("\nCalculatingHealth");
-
             for (int i = 0; i < opponent.potCards.size(); i++) {
                 opponent.getDeck().getCardList().add(opponent.potCards.get(i));
             }
-
             this.updateHealth();
             opponent.updateHealth();
         }
