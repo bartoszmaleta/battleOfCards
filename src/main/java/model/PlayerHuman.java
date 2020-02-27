@@ -39,7 +39,14 @@ public class PlayerHuman extends Player {
             attackerBet = this.bet(0, opponent);
         }
 
+        System.out.println("\nWhich statistic You want to use?\nPress");
+        System.out.println("(s) - STRENGTH");
+        System.out.println("(k) - KNOWLEDGE");
+        System.out.println("(i) - INTELLIGENCE");
+        System.out.println("(c) - CUNNING");
+      
         int flag = 0;
+
         Scanner scanner = new Scanner(System.in);
         String markerOfStatToFight = "";
         while (flag == 0) {
