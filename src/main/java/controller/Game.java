@@ -24,9 +24,9 @@ public class Game {
 
     }
 
-    public void PvAI() throws RandomizeDeckException {
+    public void PvAI(String aiMode) throws RandomizeDeckException {
         player1 = new PlayerHuman("Andrzej");
-        ai = new PlayerAI();
+        ai = new PlayerAI(aiMode);
 //      TODO:
 
     }
