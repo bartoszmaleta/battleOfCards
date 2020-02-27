@@ -9,6 +9,8 @@ import parser.DeckDaoXML;
 
 import java.io.FileNotFoundException;
 
+// Remember to change path of "Cards.xml"
+
 public class Main
 {
     public static void main( String[] args ) throws RandomizeDeckException, FileNotFoundException {

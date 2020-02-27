@@ -15,13 +15,16 @@ public class PlayerHuman extends Player {
         super(name, "\uD83E\uDD20");
     }
 
-    // parseWithEnums()
-//    public PlayerHuman(String justForEnums) throws RandomizeDeckException {
-//        super("DefaultName", "\uD83E\uDD20");
-//    }
+    @Override
+    public void displayPlayerStatistics() {
+        super.displayPlayerStatistics();
+    }
 
     @Override
     public void attack(Player opponent) throws FileNotFoundException {
+
+        System.out.println("potCards : \n" + this.getPotCards());
+
         Deck attackerDeck = this.getDeck();
         Deck opponentDeck = opponent.getDeck();
 
@@ -30,22 +33,20 @@ public class PlayerHuman extends Player {
 
         // Attacker
         System.out.println("\n" + this.getName() + " ROUND! \n");
-//        attackerCard.displayStats();
         DataHandler.printTableWithSpecifiedCard(attackerCard);
         this.displayPlayerStatistics();
 
         int attackerBet = 0;
+        int opponentBet = 0;
+        int pot = 0;
+        int whoWin = -10; // value does not matter, just to initialize!
 
         if (opponent.getCoins() > 0) {
             attackerBet = this.bet(0, opponent);
         }
 
         System.out.println("\nWhich statistic You want to use?\nPress");
-        System.out.println("(s) - STRENGTH");
-        System.out.println("(k) - KNOWLEDGE");
-        System.out.println("(i) - INTELLIGENCE");
-        System.out.println("(c) - CUNNING");
-      
+        System.out.println("(s) - STRENGTH\n(k) - KNOWLEDGE\n(i) - INTELLIGENCE\n(c) - CUNNING\n");
         int flag = 0;
 
         Scanner scanner = new Scanner(System.in);
@@ -79,35 +80,52 @@ public class PlayerHuman extends Player {
             }
         }
 
-        int opponentBet = 0;
-
-        int pot = 0;
-
-        int whoWin = 0;
-
+//         switch (markerOfStatToFight.toLowerCase()) {
         switch (markerOfStatToFight) {
             case "s":
-                strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "i":
-                intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "c":
-                cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "k":
-                knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             default:
                 System.out.println("Wrong choice ");
         }
 
-
         for (int i = 0; i < 5; i++) {
             System.out.println();
         }
 
-        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+        this.getDeck().getCardList().remove(attackerCard);
+        opponent.getDeck().getCardList().remove(opponentCard);
+
+        if (whoWin == 1 || whoWin == -1) {
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            this.getPotCards().clear();
+            opponent.getPotCards().clear();
+
+        } else if (whoWin == 0){
+            calculateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+            this.getPotCards().add(attackerCard);
+            this.getPotCards().add(opponentCard);
+
+            opponent.getPotCards().add(attackerCard);
+            opponent.getPotCards().add(opponentCard);
+        }
+
         // sumarize round
         System.out.println();
         System.out.println();
@@ -119,13 +137,9 @@ public class PlayerHuman extends Player {
         opponent.displayPlayerStatistics();
 
         TerminalManager.pressAnyKeyToContinue();
-
     }
 
-    @Override
-    public void displayPlayerStatistics() {
-        super.displayPlayerStatistics();
-    }
+
 
     @Override
     public int bet(int currentBet, Player opponent) {
@@ -197,6 +211,9 @@ public class PlayerHuman extends Player {
                 }
                 case "n": {
                     return 0;
+                }
+                default: {
+                    System.out.println("Wrong choice! Try again!");
                 }
             }
         }
