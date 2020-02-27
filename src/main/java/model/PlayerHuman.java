@@ -7,6 +7,7 @@ import services.TerminalManager;
 
 import java.io.FileNotFoundException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PlayerHuman extends Player {
@@ -46,11 +47,41 @@ public class PlayerHuman extends Player {
 
         System.out.println("\nWhich statistic You want to use?\nPress");
         System.out.println("(s) - STRENGTH\n(k) - KNOWLEDGE\n(i) - INTELLIGENCE\n(c) - CUNNING\n");
+        int flag = 0;
 
         Scanner scanner = new Scanner(System.in);
-        String markerOfStatToFight = scanner.nextLine();
+        String markerOfStatToFight = "";
+        while (flag == 0) {
+            System.out.println("\nWhich statistic You want to use?");
+            switch (scanner.nextLine()) {
+                case "s": {
+                    markerOfStatToFight = "s";
+                    flag = 1;
+                    break;
+                }
+                case "k": {
+                    markerOfStatToFight = "k";
+                    flag = 1;
+                    break;
+                }
+                case "i": {
+                    markerOfStatToFight = "i";
+                    flag = 1;
+                    break;
+                }
+                case "c": {
+                    markerOfStatToFight = "c";
+                    flag = 1;
+                    break;
+                }
+                default: {
+                    System.out.println("Wrong operation");
+                }
+            }
+        }
 
-        switch (markerOfStatToFight.toLowerCase()) {
+//         switch (markerOfStatToFight.toLowerCase()) {
+        switch (markerOfStatToFight) {
             case "s":
                 whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
@@ -113,21 +144,22 @@ public class PlayerHuman extends Player {
     @Override
     public int bet(int currentBet, Player opponent) {
         Scanner s = new Scanner(System.in);
+        int flag = 0;
         if (currentBet > 0) {
             System.out.println("\nYour coins: " + getCoins() + "\n\nYour opponent placed " + currentBet + " coins.\n" +
                     "Do you want to respond? y/n");
-            switch (s.nextLine()) {
-                case "y": {
-                    subtractCoins(currentBet);
-                    return currentBet;
-
-                }
-                case "n": {
-                    return 0;
-                }
-                default: {
-                    System.out.println("Wrong operation.");
-                    return 0;
+            while (flag == 0) {
+                switch (s.nextLine()) {
+                    case "y": {
+                        subtractCoins(currentBet);
+                        return currentBet;
+                    }
+                    case "n": {
+                        return 0;
+                    }
+                    default: {
+                        System.out.println("Wrong operation.");
+                    }
                 }
             }
         }
@@ -137,14 +169,28 @@ public class PlayerHuman extends Player {
             System.out.println("You cannot bet - not enough coins.");
             return 0;
         }
-        int flag = 0;
         while (flag == 0) {
             System.out.println("Your coins: " + getCoins() + "\n");
             System.out.println("Do you want to place bet? y/n");
             switch (s.nextLine()) {
                 case "y": {
-                    System.out.println("Choose amount of coins you want to bet:");
-                    int betAmount = s.nextInt();
+                    boolean isDone = false;
+                    int betAmount = 0;
+                    while (!isDone) {
+                        System.out.println("Choose amount of coins you want to bet:");
+                        try {
+                            betAmount = s.nextInt();
+                            if (betAmount > 0) {
+                                isDone = true;
+                            }
+                        } catch (InputMismatchException ex) {
+                            for (int i = 0; i < 30; i++) {
+                                System.out.println();
+                            }
+                            System.out.println("Wrong operation\n");
+                            s.nextLine();
+                        }
+                    }
                     if (betAmount > coinsOfBettingPlayer) {
                         for (int i = 0; i < 30; i++) {
                             System.out.println();
