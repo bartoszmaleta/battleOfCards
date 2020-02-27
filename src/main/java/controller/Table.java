@@ -68,10 +68,24 @@ public class Table {
     }
 
     private void playPvP(Player player1, Player player2) throws FileNotFoundException {
+        System.out.println("playPvP");
+
         while (isPlayerAlive(player1) || isPlayerAlive(player2)) {
-            System.out.println("playPvP");
-            player1.attack(player2);
-            player2.attack(player1);
+            System.out.println("playPvP while loop");
+
+            if (player1.getPotCards().size() > 0) {
+                player1.attack(player2);
+                player2.attack(player1);
+            } else {
+                player1.setEmptyPotCards();
+                player2.setEmptyPotCards();
+
+                player1.attack(player2);
+                player2.attack(player1);
+            }
+
+//            player1.attack(player2);
+//            player2.attack(player1);
         }
     }
 
@@ -79,7 +93,7 @@ public class Table {
         while (isPlayerAlive(player1) || isPlayerAlive(playerAi)) {
             System.out.println("playPvAi");
 
-                // TODO: playPvAi
+                // TODO: playPvAi draw!
             player1.attack(playerAi);
             playerAi.attack(player1);
         }

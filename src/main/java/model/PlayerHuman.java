@@ -51,11 +51,15 @@ public class PlayerHuman extends Player {
 
         int pot = 0;
 
+//        if (this.getPotCards().size() == 0) {
+
+//        }
+
         int whoWin = 0;
 
         switch (markerOfStatToFight.toLowerCase()) {
             case "s":
-                strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
                 break;
             case "i":
                 intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
@@ -70,21 +74,28 @@ public class PlayerHuman extends Player {
                 System.out.println("Wrong choice ");
         }
 
-
         for (int i = 0; i < 5; i++) {
             System.out.println();
         }
 
-        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
         // sumarize round
         System.out.println();
         System.out.println();
+
+        if (whoWin == 1 || whoWin == -1) {
+            this.getPotCards().clear();
+            opponent.getPotCards().clear();
+        }
 
         System.out.println(this.getName() + " statistics");
         this.displayPlayerStatistics();
 
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
+
+        System.out.println(this.getDeck().getCardList());
+        System.out.println(opponent.getDeck().getCardList());
 
         TerminalManager.pressAnyKeyToContinue();
 

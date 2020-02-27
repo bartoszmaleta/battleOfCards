@@ -13,6 +13,8 @@ import services.DataHandler;
 import services.TerminalManager;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Player {
     private String name;
@@ -22,6 +24,8 @@ public abstract class Player {
     private int experience;
     private int level;
     private int coins;
+    private int potCoins;
+    private List<Card> potCards;
 
 
     public Player(String name, String apparel) throws RandomizeDeckException {
@@ -32,6 +36,8 @@ public abstract class Player {
         this.experience = 0;
         this.level = 1;
         this.coins = 1000;
+        this.potCoins = 0;
+        this.potCards = new ArrayList<>();
     }
 
     public abstract void attack(Player opponent) throws FileNotFoundException;
@@ -48,8 +54,11 @@ public abstract class Player {
             // TODO: bets and cards move to another round
 
             System.out.println("Draw");
-            addCoins(pot / 2);
-            opponent.addCoins(pot / 2);
+//            addCoins(pot / 2);
+//            opponent.addCoins(pot / 2);
+
+//            this.potCards.add()
+
         } else if (whoWin == -1) {
             System.out.println("Opponent " + opponent.getName() + " has higher attribute");
             opponent.addCoins(pot);
@@ -61,32 +70,53 @@ public abstract class Player {
 
     public void updateHealth(int whowin, Card cardAttacker, Card cardOpponent, Player opponent) {
         if (whowin == 1) {
-            this.getDeck().getCardList().add(cardOpponent);
 
+            // Adding loser card to winner deck
+            if (this.potCards.size() > 0) {
+                for (int i = 0; i < potCards.size(); i++) {
+                    this.getDeck().getCardList().add(potCards.get(i));
+                }
+            } else {
+                this.getDeck().getCardList().add(cardOpponent);
+            }
+
+            // removing loser card from loser deck
             for (int i = 0; i < opponent.getDeck().getCardList().size(); i++) {
                 Card card = opponent.getDeck().getCardList().get(i);
                 if (card.equals(cardOpponent)) {
                     opponent.getDeck().getCardList().remove(card);
                 }
             }
+
+            // updating health of players
             this.setHealth();
             opponent.setHealth();
-//            this.subtractHealth(1);
 
         } else if (whowin == 0) {
             // TODO:
-        } else if (whowin == -1) {
-            opponent.getDeck().getCardList().add(cardAttacker);
 
+        } else if (whowin == -1) {
+
+            // Adding loser card to winner deck
+            if (opponent.potCards.size() > 0) {
+                for (int i = 0; i < opponent.potCards.size(); i++) {
+                    opponent.getDeck().getCardList().add(opponent.potCards.get(i));
+                }
+            } else {
+                opponent.getDeck().getCardList().add(cardAttacker);
+            }
+
+            // removing loser card from loser deck
             for (int i = 0; i < this.getDeck().getCardList().size(); i++) {
                 Card card = this.getDeck().getCardList().get(i);
                 if (card.equals(cardAttacker)) {
                     this.getDeck().getCardList().remove(card);
                 }
             }
+
+            // updating health of players
             this.setHealth();
             opponent.setHealth();
-//            opponent.subtractHealth(1);
         }
     }
 
@@ -138,6 +168,31 @@ public abstract class Player {
         return health;
     }
 
+
+    public int getPotCoins() {
+        return potCoins;
+    }
+
+    public void setPotCoins(int potCoins) {
+        this.potCoins = potCoins;
+    }
+
+    public List<Card> getPotCards() {
+        return potCards;
+    }
+
+    public void setPotCards(List<Card> potCards) {
+        this.potCards = potCards;
+    }
+
+    public void setEmptyPotCards() {
+        this.potCards.clear();
+    }
+
+    public void addCardToPotCards(Card cardToAdd) {
+        this.potCards.add(cardToAdd);
+    }
+
     public void setLevel(int level) {
         this.level = level;
     }
@@ -156,9 +211,9 @@ public abstract class Player {
 
     public void displayPlayerStatistics() {
 //        TODO:
-        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level"};
+        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "Cards in pot"};
         Object[][] data = {
-                {this.health, this.coins, this.experience, this.level}
+                {this.health, this.coins, this.experience, this.level, this.potCards}
         };
         System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
@@ -184,7 +239,7 @@ public abstract class Player {
         }
     }
 
-    public void strFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int strFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
         Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
         Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
@@ -215,6 +270,20 @@ public abstract class Player {
         whoWin = strengthComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
+
+//         to another method
+        if (whoWin == 0) {
+            this.potCards.add(attackerCard);
+            this.potCards.add(opponentCard);
+            this.getDeck().getCardList().remove(attackerCard);
+
+            opponent.potCards.add(attackerCard);
+            opponent.potCards.add(opponentCard);
+            opponent.getDeck().getCardList().remove(attackerCard);
+        }
+        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+
+        return whoWin;
     }
 
     public void intFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
@@ -248,6 +317,10 @@ public abstract class Player {
         whoWin = intelligenceComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
+        // TODO
+
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+
     }
 
     public void cunFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
@@ -281,6 +354,10 @@ public abstract class Player {
         whoWin = cunningComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
+        // TODO
+
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+
     }
 
     public void knoFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
@@ -317,6 +394,9 @@ public abstract class Player {
         whoWin = knowledgeComparator.compare(attackerCard, opponentCard);
 
         checkWhoWon(whoWin, pot, opponent);
+        // TODO
+//        updateHealth(whoWin, attackerCard, opponentCard, opponent);
+
     }
 
 }
