@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 //       - high scores                                                  FUTURE
 //       - emoji of the player                                          DONE
 //       - enum for player specs                                        FUTURE
+//       - add to cardEnum path to image of right card                  FUTURE
 //       -
 //       -
 //       - presentation: projectStructure from IDE, github network, uml, todos on basecamp
