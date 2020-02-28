@@ -73,7 +73,7 @@ public class TerminalManager {
 
     public static void displayMenu() throws FileNotFoundException {
         TerminalManager.clearScreen();
-        String FILE_PATH = "src/main/java/graphic.txt/menu_logo.txt";
+        String FILE_PATH = "src/main/resources/graphic.txt/menu_logo.txt";
 
         Scanner input = new Scanner(new File(FILE_PATH));
 

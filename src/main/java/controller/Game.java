@@ -27,7 +27,7 @@ public class Game {
         boolean isRunning = true;
 
         TerminalManager.displayWelcomeScreen();
-        DataHandler.printFromFile("src/main/java/graphic.txt/WelcomeScreen.txt");
+        DataHandler.printFromFile("src/main/resources/graphic.txt/welcomeScreen.txt");
         // Menu
         Scanner scanner = new Scanner(System.in);
 
