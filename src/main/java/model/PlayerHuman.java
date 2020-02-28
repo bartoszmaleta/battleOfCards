@@ -47,9 +47,10 @@ public class PlayerHuman extends Player {
         System.out.println("(s) - STRENGTH\n(k) - KNOWLEDGE\n(i) - INTELLIGENCE\n(c) - CUNNING\n");
 
         Scanner scanner = new Scanner(System.in);
-        String markerOfStatToFight = scanner.nextLine();
+//        String markerOfStatToFight = scanner.nextLine();
         boolean isCorrectInput = true;
         while (isCorrectInput) {
+            String markerOfStatToFight = scanner.nextLine();
             switch (markerOfStatToFight.toLowerCase()) {
                 case "s":
                     whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
