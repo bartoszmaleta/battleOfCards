@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
 //       - add more colours                                             DONE
 //       - high scores                                                  FUTURE
 //       - emoji of the player                                          DONE
+//       - enum for player specs                                        FUTURE
 //       -
 //       -
 //       - presentation: projectStructure from IDE, github network, uml, todos on basecamp

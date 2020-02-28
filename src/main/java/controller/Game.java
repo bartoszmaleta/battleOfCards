@@ -15,19 +15,16 @@ public class Game {
     }
 
     public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
-        System.out.println("optionPVP");
         table = new Table(2);
 
     }
 
     public void optionPvAi() throws RandomizeDeckException, FileNotFoundException {
-        System.out.println("optionPvAi");
         table = new Table(1);
     }
 
     public void init() throws RandomizeDeckException, FileNotFoundException {
         boolean isRunning = true;
-        System.out.println("play()");
 
         TerminalManager.displayWelcomeScreen();
         DataHandler.printFromFile("src/main/java/graphic.txt/WelcomeScreen.txt");

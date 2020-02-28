@@ -25,5 +25,4 @@ public class IntelligenceComparator implements Comparator<Card> {
         }
         return 10;
     }
-
 }

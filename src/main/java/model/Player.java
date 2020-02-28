@@ -173,9 +173,9 @@ public abstract class Player {
 
     public void displayPlayerStatistics() {
 //        TODO:
-        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "Cards in pot"};
+        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "    ", "Cards in pot"};
         Object[][] data = {
-                {this.health, this.coins, this.experience, this.level, potCardsToString()}
+                {this.health, this.coins, this.experience, this.level, "    ", potCardsToString()}
         };
         System.out.println(FlipTableConverters.fromObjects(headers, data));
     }

@@ -25,5 +25,4 @@ public class KnowledgeComparator implements Comparator<Card> {
         }
         return 10;
     }
-
 }
