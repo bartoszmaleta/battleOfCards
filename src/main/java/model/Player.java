@@ -52,9 +52,6 @@ public abstract class Player {
     }
 
     public void updateHealth() {
-//        int health = this.deck.getCardList().size();
-//        this.health = health;
-
         this.health = this.deck.getCardList().size();
     }
 
@@ -162,6 +159,10 @@ public abstract class Player {
         return null;
     }
 
+    public void addExperience() {
+        this.experience += 150;
+    }
+
     public String potCardsToString() {
         String potCardsInString = "";
         for (int i = 0; i < this.potCards.size(); i++) {
@@ -210,6 +211,9 @@ public abstract class Player {
             this.updateHealth();
             opponent.updateHealth();
 
+            this.addExperience();
+            this.calculateLevel();
+
         } else if (whowin == 0) {
             this.updateHealth();
             opponent.updateHealth();
@@ -220,6 +224,9 @@ public abstract class Player {
             }
             this.updateHealth();
             opponent.updateHealth();
+
+            opponent.addExperience();
+            opponent.calculateLevel();
         }
     }
 

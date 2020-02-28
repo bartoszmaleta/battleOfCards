@@ -23,8 +23,6 @@ public class PlayerHuman extends Player {
     @Override
     public void attack(Player opponent) throws FileNotFoundException {
 
-        System.out.println("potCards : \n" + this.getPotCards());
-
         Deck attackerDeck = this.getDeck();
         Deck opponentDeck = opponent.getDeck();
 
@@ -111,8 +109,10 @@ public class PlayerHuman extends Player {
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
 
-        TerminalManager.pressAnyKeyToContinue();
+//        TerminalManager.pressAnyKeyToContinue();
+        TerminalManager.pressAnyKeyToContinueWithMenu();
     }
+
 
 
 

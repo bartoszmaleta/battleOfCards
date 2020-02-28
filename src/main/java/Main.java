@@ -8,12 +8,12 @@ import java.io.FileNotFoundException;
 //       - healthCalculating loadingBar                                 COOL FEATURE
 //       - clearScreen()                                                HARD IN INTELLIJ
 //       - allignment                                                   COOL FEATURE
-//       - experience dependency                                        MUST HAVE
-//       - level dependency                                             MUST HAVE
-//       - coins dependency                                             MUST HAVE
-//       - coins deposit after draw                                     MUST HAVE
+//       - experience depends on coins/cards You won                    MUST HAVE
+//       - level dependency                                             FUTURE
+//       - possible to buy sth for coins                                FUTURE
+//       - coins deposit after draw                                     DONE
 //       - better newLines()                                            HARD IN INTELLIJ
-//       - menu during game                                             MUST HAVE
+//       - menu during game                                             DONE
 //       - attack() and bet() break into smaller methods                FUTURE
 //       - calculateHealth() move to one method = "update"              FUTURE
 //       - show name of Smurf on his card image                         MUST HAVE
