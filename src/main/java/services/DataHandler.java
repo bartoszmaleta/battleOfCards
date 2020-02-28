@@ -67,9 +67,6 @@ public class DataHandler {
 //        String cunningOfCard = Integer.toString(card.getStats().get(CardSpec.CUNNING));
 
         dataInString = dataInString.replaceAll("#", String.valueOf(Chalk.on("#").red().bgRed()));
-//        dataInString = dataInString.replaceAll("_", String.valueOf(Chalk.on("_").blue().bgBlue()));
-//        dataInString = dataInString.replaceAll("X", String.valueOf(Chalk.on("X").blue().bgBlue()));
-//        String name = card.getName()
         String nameOfCard = card.getName();
         dataInString = dataInString.replaceAll("88888888888888888888", String.valueOf(Chalk.on(nameOfCard).bold().green()));
         dataInString = dataInString.replaceAll("11", strengthOfCard);
