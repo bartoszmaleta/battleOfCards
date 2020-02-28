@@ -42,7 +42,7 @@ public class MainForEnumsTesting {
 
         Player player = new PlayerHuman("Andrzej");
         String name = player.getDeck().getCardList().get(0).getName();
-        System.out.println(name);
+        System.out.println("name =" + name);
         System.out.println(player.getApparel());
         Player player12 = new PlayerHuman("qwe");
         Card card = player12.getDeck().getRandomCard();
