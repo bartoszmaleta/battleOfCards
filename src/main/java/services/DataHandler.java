@@ -71,7 +71,7 @@ public class DataHandler {
 //        dataInString = dataInString.replaceAll("X", String.valueOf(Chalk.on("X").blue().bgBlue()));
 //        String name = card.getName()
         String nameOfCard = card.getName();
-        dataInString = dataInString.replaceAll("88888888888888888888", nameOfCard);
+        dataInString = dataInString.replaceAll("88888888888888888888", String.valueOf(Chalk.on(nameOfCard).bold().green()));
         dataInString = dataInString.replaceAll("11", strengthOfCard);
         dataInString = dataInString.replaceAll("22", knowledgeOfCard);
         dataInString = dataInString.replaceAll("33", intelligenceOfCard);
