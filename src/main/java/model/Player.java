@@ -162,11 +162,20 @@ public abstract class Player {
         return null;
     }
 
+    public String potCardsToString() {
+        String potCardsInString = "";
+        for (int i = 0; i < this.potCards.size(); i++) {
+            potCardsInString += this.potCards.get(i).getName() + ", ";
+        }
+
+        return potCardsInString;
+    }
+
     public void displayPlayerStatistics() {
 //        TODO:
         String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "Cards in pot"};
         Object[][] data = {
-                {this.health, this.coins, this.experience, this.level, this.potCards}
+                {this.health, this.coins, this.experience, this.level, potCardsToString()}
         };
         System.out.println(FlipTableConverters.fromObjects(headers, data));
     }

@@ -32,7 +32,7 @@ public class PlayerHuman extends Player {
         Card opponentCard = opponentDeck.getRandomCard();
 
         // Attacker
-        System.out.println("\n" + this.getName() + " ROUND! \n");
+        System.out.println("\n" + this.getName() + " ROUND! " + this.getApparel() + "\n");
         DataHandler.printTableWithSpecifiedCard(attackerCard);
         this.displayPlayerStatistics();
 

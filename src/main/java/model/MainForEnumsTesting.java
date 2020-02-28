@@ -40,7 +40,18 @@ public class MainForEnumsTesting {
 //        TerminalManager.clearScreen();
 //        System.out.println(FlipTable.of(headers, data));
 
+        Player player = new PlayerHuman("Andrzej");
+        String name = player.getDeck().getCardList().get(0).getName();
+        System.out.println(name);
+        System.out.println(player.getApparel());
+        Player player12 = new PlayerHuman("qwe");
+        Card card = player12.getDeck().getRandomCard();
 
+        player.addCardToPotCards(card);
+
+        System.out.println(player.potCardsToString());
+//        System.out.println(🤠"\\uD83E\\uDD20");
+//        System.out.println("\uD83E\uDD96");
 
 
 //        String loader = "[";
