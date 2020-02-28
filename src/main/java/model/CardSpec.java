@@ -1,6 +1,8 @@
 package model;
 
 public enum CardSpec {
+//    NAME("Name"),
+
     STRENGTH("Strength"),
 
     KNOWLEDGE("Knowledge"),

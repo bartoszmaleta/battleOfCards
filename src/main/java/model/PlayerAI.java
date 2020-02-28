@@ -12,7 +12,7 @@ public class PlayerAI extends Player {
     private String aiMode;
 
     public PlayerAI(String aiMode) throws RandomizeDeckException {
-        super("Ai", "&");
+        super("Ai", "\\uD83E\\uDD21");
         // & -----> icon of enemyAI
         this.aiMode = aiMode;
     }
@@ -26,7 +26,7 @@ public class PlayerAI extends Player {
         Card opponentCard = opponentDeck.getRandomCard();
 
         // Attacker
-        System.out.println("\n" + this.getName() + " ROUND! \n");
+        System.out.println("\n" + this.getName() + " ROUND! " + this.getApparel() + "\n");
 
         DataHandler.printTableWithSpecifiedCard(attackerCard);
         this.displayPlayerStatistics();
@@ -79,9 +79,9 @@ public class PlayerAI extends Player {
             }
         }
 
-        for (int i = 0; i < 5; i++) {
-            System.out.println();
-        }
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println();
+//        }
 
         this.getDeck().getCardList().remove(attackerCard);
         opponent.getDeck().getCardList().remove(opponentCard);

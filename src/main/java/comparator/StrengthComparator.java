@@ -25,5 +25,4 @@ public class StrengthComparator implements Comparator<Card> {
         }
         return 10;
     }
-
 }

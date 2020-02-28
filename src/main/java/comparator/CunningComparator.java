@@ -25,5 +25,4 @@ public class CunningComparator implements Comparator<Card> {
         }
         return 10;
     }
-
 }

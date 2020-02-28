@@ -15,5 +15,4 @@ public class RandomizeDeckException extends Throwable {
     public String toString() {
         return "You cannot randomize deck of " + numberOfCards + " cards, because Master Deck has only " + masterDeckSize + " cards. Recalculate";
     }
-
 }

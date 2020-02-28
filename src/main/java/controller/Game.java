@@ -1,6 +1,7 @@
 package controller;
 
 import exception.RandomizeDeckException;
+import services.DataHandler;
 import services.TerminalManager;
 
 import java.io.FileNotFoundException;
@@ -13,23 +14,20 @@ public class Game {
         init();
     }
 
-
     public void optionPvP() throws RandomizeDeckException, FileNotFoundException {
-        System.out.println("optionPVP");
         table = new Table(2);
 
     }
 
     public void optionPvAi() throws RandomizeDeckException, FileNotFoundException {
-        System.out.println("optionPvAi");
         table = new Table(1);
     }
 
     public void init() throws RandomizeDeckException, FileNotFoundException {
         boolean isRunning = true;
-        System.out.println("play()");
 
         TerminalManager.displayWelcomeScreen();
+        DataHandler.printFromFile("src/main/resources/graphic.txt/welcomeScreen.txt");
         // Menu
         Scanner scanner = new Scanner(System.in);
 

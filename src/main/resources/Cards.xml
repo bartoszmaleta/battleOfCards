@@ -131,7 +131,7 @@
     <Card name="        Grandpa Smurf         ">
         <Stats>
             <Stat id="Strength">20</Stat>
-            <Stat id="Knowledge">100</Stat>
+            <Stat id="Knowledge">99</Stat>
             <Stat id="Intelligence">50</Stat>
             <Stat id="Cunning">25</Stat>
         </Stats>
@@ -237,7 +237,7 @@
             <Stat id="Strength">85</Stat>
             <Stat id="Knowledge">10</Stat>
             <Stat id="Intelligence">25</Stat>
-            <Stat id="Cunning">100</Stat>
+            <Stat id="Cunning">99</Stat>
         </Stats>
     </Card>
     <Card name="         Sweepy Smurf         ">

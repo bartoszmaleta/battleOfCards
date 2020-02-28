@@ -21,7 +21,6 @@ public class Card {
         return name;
     }
 
-
     public void setCardValueById(CardSpec cardSpec, Integer value) {
         this.stats.put(cardSpec, value);
     }
@@ -33,6 +32,4 @@ public class Card {
             System.out.println(keyOfMap + " " + valueOfMap);
         }
     }
-
-
 }

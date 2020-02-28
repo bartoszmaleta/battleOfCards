@@ -23,8 +23,6 @@ public class PlayerHuman extends Player {
     @Override
     public void attack(Player opponent) throws FileNotFoundException {
 
-        System.out.println("potCards : \n" + this.getPotCards());
-
         Deck attackerDeck = this.getDeck();
         Deck opponentDeck = opponent.getDeck();
 
@@ -32,7 +30,7 @@ public class PlayerHuman extends Player {
         Card opponentCard = opponentDeck.getRandomCard();
 
         // Attacker
-        System.out.println("\n" + this.getName() + " ROUND! \n");
+        System.out.println("\n" + this.getName() + " ROUND! " + this.getApparel() + "\n");
         DataHandler.printTableWithSpecifiedCard(attackerCard);
         this.displayPlayerStatistics();
 
@@ -47,55 +45,31 @@ public class PlayerHuman extends Player {
 
         System.out.println("\nWhich statistic You want to use?\nPress");
         System.out.println("(s) - STRENGTH\n(k) - KNOWLEDGE\n(i) - INTELLIGENCE\n(c) - CUNNING\n");
-        int flag = 0;
 
         Scanner scanner = new Scanner(System.in);
-        String markerOfStatToFight = "";
-        while (flag == 0) {
-            System.out.println("\nWhich statistic You want to use?");
-            switch (scanner.nextLine()) {
-                case "s": {
-                    markerOfStatToFight = "s";
-                    flag = 1;
+        String markerOfStatToFight = scanner.nextLine();
+        boolean isCorrectInput = true;
+        while (isCorrectInput) {
+            switch (markerOfStatToFight.toLowerCase()) {
+                case "s":
+                    whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    isCorrectInput = false;
                     break;
-                }
-                case "k": {
-                    markerOfStatToFight = "k";
-                    flag = 1;
+                case "i":
+                    whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    isCorrectInput = false;
                     break;
-                }
-                case "i": {
-                    markerOfStatToFight = "i";
-                    flag = 1;
+                case "c":
+                    whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    isCorrectInput = false;
                     break;
-                }
-                case "c": {
-                    markerOfStatToFight = "c";
-                    flag = 1;
+                case "k":
+                    whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
+                    isCorrectInput = false;
                     break;
-                }
-                default: {
-                    System.out.println("Wrong operation");
-                }
+                default:
+                    System.out.println("Wrong choice ");
             }
-        }
-
-//         switch (markerOfStatToFight.toLowerCase()) {
-        switch (markerOfStatToFight) {
-            case "s":
-                whoWin = strFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                break;
-            case "i":
-                whoWin = intFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                break;
-            case "c":
-                whoWin = cunFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                break;
-            case "k":
-                whoWin = knoFightProcess(opponentCard, attackerCard, opponent, attackerBet, opponentBet, pot, whoWin);
-                break;
-            default:
-                System.out.println("Wrong choice ");
         }
 
         for (int i = 0; i < 5; i++) {
@@ -126,18 +100,19 @@ public class PlayerHuman extends Player {
             opponent.getPotCards().add(opponentCard);
         }
 
-        // sumarize round
-        System.out.println();
-        System.out.println();
+        TerminalManager.clearScreen();
 
-        System.out.println(this.getName() + " statistics");
+
+        System.out.println("\n\n" + this.getName() + " statistics");
         this.displayPlayerStatistics();
 
         System.out.println(opponent.getName() + " statistics");
         opponent.displayPlayerStatistics();
 
-        TerminalManager.pressAnyKeyToContinue();
+//        TerminalManager.pressAnyKeyToContinue();
+        TerminalManager.pressAnyKeyToContinueWithMenu();
     }
+
 
 
 
@@ -146,7 +121,7 @@ public class PlayerHuman extends Player {
         Scanner s = new Scanner(System.in);
         int flag = 0;
         if (currentBet > 0) {
-            System.out.println("\nYour coins: " + getCoins() + "\n\nYour opponent placed " + currentBet + " coins.\n" +
+            System.out.println("Your coins: " + getCoins() + "\n\nYour opponent placed " + currentBet + " coins.\n" +
                     "Do you want to respond? y/n");
             while (flag == 0) {
                 switch (s.nextLine()) {
