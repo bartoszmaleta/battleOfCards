@@ -17,7 +17,6 @@ public class DataHandler {
     }
 
     public static String stringFromFileWithSpecifiedCard(String filepath, Card card) throws FileNotFoundException {
-        TerminalManager.clearScreen();
         // 21 signs max
 
         Scanner input = new Scanner(new File(filepath));
