@@ -25,7 +25,6 @@ public abstract class Player {
     private int potCoins;
     private List<Card> potCards;
 
-
     public Player(String name, String apparel) throws RandomizeDeckException {
         this.name = name;
         this.deck = new Deck(30);
@@ -41,7 +40,6 @@ public abstract class Player {
     public abstract void attack(Player opponent) throws FileNotFoundException;
 
     public abstract int bet(int currentBet, Player player);
-
 
     public String getName() {
         return name;
@@ -92,11 +90,10 @@ public abstract class Player {
     }
 
     public int setStartHealth() {
-//      TODO: health should depends on length of remaining Deck
+        // TODO: health should depends on length of remaining Deck
         int health = this.deck.getCardList().size();
         return health;
     }
-
 
     public int getPotCoins() {
         return potCoins;
@@ -155,7 +152,7 @@ public abstract class Player {
     }
 
     public String toString() {
-//        TODO:
+        // TODO:
         return null;
     }
 
@@ -173,14 +170,11 @@ public abstract class Player {
     }
 
     public void displayPlayerStatistics() {
-//        TODO:
-        String[] headers = {"Remaining Cards", "Coins", "Experience", "Level", "    ", "Cards in pot"};
-        Object[][] data = {
-                {this.health, this.coins, this.experience, this.level, "    ", potCardsToString()}
-        };
+        // TODO:
+        String[] headers = { "Remaining Cards", "Coins", "Experience", "Level", "    ", "Cards in pot" };
+        Object[][] data = { { this.health, this.coins, this.experience, this.level, "    ", potCardsToString() } };
         System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
-
 
     public void checkWhoWon(int whoWin, int pot, Player opponent) {
         if (whoWin == 1) {
@@ -191,8 +185,8 @@ public abstract class Player {
         } else if (whoWin == 0) {
             // TODO: bets and cards move to another round
             System.out.println("Draw");
-//            addCoins(pot / 2);
-//            opponent.addCoins(pot / 2);
+            // addCoins(pot / 2);
+            // opponent.addCoins(pot / 2);
 
         } else if (whoWin == -1) {
             System.out.println("Opponent " + opponent.getName() + " has higher attribute");
@@ -230,13 +224,15 @@ public abstract class Player {
         }
     }
 
-    public int strFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int strFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet,
+            int pot, int whoWin) throws FileNotFoundException {
         Integer strengthOfOpponentCard = opponentCard.getStats().get(CardSpec.STRENGTH);
         Integer strengthOfAttackerCard = attackerCard.getStats().get(CardSpec.STRENGTH);
 
         TerminalManager.clearScreen();
 
-        System.out.println("\n" + opponent.getName() + " ROUND! \n");
+        // System.out.println("\n" + opponent.getName() + " ROUND! \n");
+        System.out.println("\n" + opponent.getName() + " ROUND! " + opponent.getApparel() + "\n");
 
         DataHandler.printTableWithSpecifiedCard(opponentCard);
         opponent.displayPlayerStatistics();
@@ -265,13 +261,14 @@ public abstract class Player {
         return whoWin;
     }
 
-    public int intFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int intFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet,
+            int pot, int whoWin) throws FileNotFoundException {
         Integer intelligenceOfOpponentCard = opponentCard.getStats().get(CardSpec.INTELLIGENCE);
         Integer intelligenceOfAttackerCard = attackerCard.getStats().get(CardSpec.INTELLIGENCE);
 
         TerminalManager.clearScreen();
 
-        System.out.println("\n" + opponent.getName() + " ROUND! \n");
+        System.out.println("\n" + opponent.getName() + " ROUND! " + opponent.getApparel() + "\n");
 
         DataHandler.printTableWithSpecifiedCard(opponentCard);
         opponent.displayPlayerStatistics();
@@ -299,13 +296,14 @@ public abstract class Player {
         return whoWin;
     }
 
-    public int cunFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int cunFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet,
+            int pot, int whoWin) throws FileNotFoundException {
         Integer cunningOfOpponentCard = opponentCard.getStats().get(CardSpec.CUNNING);
         Integer cunningOfAttackerCard = attackerCard.getStats().get(CardSpec.CUNNING);
 
         TerminalManager.clearScreen();
 
-        System.out.println("\n" + opponent.getName() + " ROUND! \n");
+        System.out.println("\n" + opponent.getName() + " ROUND! " + opponent.getApparel() + "\n");
 
         DataHandler.printTableWithSpecifiedCard(opponentCard);
         opponent.displayPlayerStatistics();
@@ -333,14 +331,14 @@ public abstract class Player {
         return whoWin;
     }
 
-    public int knoFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet, int pot, int whoWin) throws FileNotFoundException {
+    public int knoFightProcess(Card opponentCard, Card attackerCard, Player opponent, int attackerBet, int opponentBet,
+            int pot, int whoWin) throws FileNotFoundException {
         Integer knowledgeOfOpponentCard = opponentCard.getStats().get(CardSpec.KNOWLEDGE);
         Integer knowledgeOfAttackerCard = attackerCard.getStats().get(CardSpec.KNOWLEDGE);
 
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
-        System.out.println("\n" + opponent.getName() + " ROUND! \n");
+        TerminalManager.clearScreen();
+
+        System.out.println("\n" + opponent.getName() + " ROUND! " + opponent.getApparel() + "\n");
 
         DataHandler.printTableWithSpecifiedCard(opponentCard);
         opponent.displayPlayerStatistics();

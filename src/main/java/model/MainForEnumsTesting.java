@@ -64,6 +64,13 @@ public class MainForEnumsTesting {
 ////            TerminalManager.clearScreen();
 //        }
 //        System.out.println(loader + "]");
+       System.out.println("--------------");
+Player playerTest1 = new PlayerHuman("Andrzej");
+Player playerTest2 = new PlayerHuman("Andrzej");
+
+System.out.println(playerTest1.getApparel());
+System.out.println(playerTest2.getApparel());
+
 
     }
 }
