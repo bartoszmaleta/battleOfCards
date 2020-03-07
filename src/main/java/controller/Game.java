@@ -32,8 +32,6 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
 
         while (isRunning) {
-            System.out.println("while (isRunning)");
-
             TerminalManager.showMenu();
 
             String chooseOption = scanner.nextLine();
